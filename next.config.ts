@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    optimizePackageImports: ['lucide-react', 'posthog-js'],
   },
   async headers() {
     return [

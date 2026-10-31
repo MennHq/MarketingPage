@@ -8,11 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-brand: var(--font-grandstander);
-  --font-mono: var(--font-geist-mono);
-  --font-grandstander: var(--font-grandstander);
-
+  --font-sans: var(--font-grandstander), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-brand: var(--font-grandstander), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-grandstander: var(--font-grandstander), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,5 +23,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-grandstander), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }

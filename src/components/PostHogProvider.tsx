@@ -2,19 +2,20 @@
 
 import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import posthog from 'posthog-js';
+
+let phInstance: any = null;
 
 function PostHogPageView() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (pathname && typeof window !== 'undefined' && (posthog as any).__loaded) {
+    if (pathname && typeof window !== 'undefined' && phInstance && phInstance.__loaded) {
       let url = window.origin + pathname;
       if (searchParams && searchParams.toString()) {
         url = url + '?' + searchParams.toString();
       }
-      posthog.capture('$pageview', {
+      phInstance.capture('$pageview', {
         $current_url: url,
       });
     }
@@ -30,18 +31,25 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY || 'phc_ph5K7sEtEe7ma5owE6AdhcKR4TdBwqSjM94ddi6Pcrhx';
     const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com';
 
-    const initPostHog = () => {
-      if ((posthog as any).__loaded) return;
-      posthog.init(posthogKey, {
-        api_host: posthogHost,
-        person_profiles: 'identified_only',
-        capture_pageview: false,
-        capture_pageleave: true,
-        autocapture: false,
-        capture_dead_clicks: false,
-        disable_surveys: true,
-        disable_session_recording: true,
-      });
+    const initPostHog = async () => {
+      if (phInstance) return;
+      try {
+        const { default: posthog } = await import('posthog-js');
+        phInstance = posthog;
+        if ((posthog as any).__loaded) return;
+        posthog.init(posthogKey, {
+          api_host: posthogHost,
+          person_profiles: 'identified_only',
+          capture_pageview: false,
+          capture_pageleave: true,
+          autocapture: false,
+          capture_dead_clicks: false,
+          disable_surveys: true,
+          disable_session_recording: true,
+        });
+      } catch (e) {
+        console.debug('PostHog deferred load:', e);
+      }
     };
 
     // Defer initialization to user interaction or late idle to ensure 0 main-thread blocking

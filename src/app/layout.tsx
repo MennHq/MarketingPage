@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Grandstander } from "next/font/google";
+import { Grandstander } from "next/font/google";
 import { PostHogProvider } from "../components/PostHogProvider";
 import "./globals.css";
 
@@ -7,18 +7,7 @@ const grandstander = Grandstander({
   variable: "--font-grandstander",
   subsets: ["latin"],
   display: "swap",
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
+  preload: true,
 });
 
 export const viewport: Viewport = {
@@ -96,13 +85,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${grandstander.variable} h-full antialiased font-grandstander`}
+      className={`${grandstander.variable} h-full antialiased font-grandstander`}
       suppressHydrationWarning
     >
-      <head>
-        <link rel="preconnect" href="https://us-assets.i.posthog.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://us.i.posthog.com" />
-      </head>
       <body className={`${grandstander.className} min-h-full flex flex-col`} suppressHydrationWarning>
         <script
           type="application/ld+json"
