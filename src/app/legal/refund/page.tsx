@@ -15,7 +15,7 @@ export default function RefundPolicy() {
       <section className="mb-10">
         <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">1. General Rule: No Refunds</h2>
         <p className="mb-4">
-          Because of the nature of digital goods and the immediate availability of our AI features and premium training content, <strong>all sales are final. We do not offer standard refunds, prorated refunds, or returns for buyer's remorse.</strong>
+          Because of the nature of digital goods and the immediate availability of our AI features and premium training content, <strong>all sales are final. We do not offer standard refunds, prorated refunds, or returns for buyer&apos;s remorse.</strong>
         </p>
       </section>
 

@@ -4,11 +4,12 @@ import React, { useEffect, useState, useRef } from 'react';
 import { initializePaddle, Paddle } from '@paddle/paddle-js';
 import Link from 'next/link';
 
-const PADDLE_CLIENT_TOKEN = "test_b503a3450cb3219fa5267a7ef42";
-const PADDLE_PRICE_ID = "pri_01m43jma0epjpm0dhn9k3rbp47";
+const PADDLE_CLIENT_TOKEN = process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || "test_b503a3450cb3219fa5267a7ef42";
+const PADDLE_PRICE_ID = process.env.NEXT_PUBLIC_PADDLE_PRICE_ID || "pri_01m43jma0epjpm0dhn9k3rbp47";
+const PADDLE_ENVIRONMENT = PADDLE_CLIENT_TOKEN.startsWith("live_") ? "production" : "sandbox";
 
 export default function CheckoutPage() {
-  const [paddle, setPaddle] = useState<Paddle>();
+  
   const [isCompleted, setIsCompleted] = useState(false);
   const [customerEmail, setCustomerEmail] = useState('');
   const [countdown, setCountdown] = useState(5);
@@ -20,19 +21,21 @@ export default function CheckoutPage() {
     initialized.current = true;
 
     initializePaddle({
-      environment: 'sandbox', 
+      environment: PADDLE_ENVIRONMENT, 
       token: PADDLE_CLIENT_TOKEN,
       eventCallback: function(data) {
         if (data.name === "checkout.completed") {
           console.log("[Marketing Checkout] Payment succeeded!", data);
-          const email = (data.data as any)?.customer?.email || (data.data as any)?.custom_data?.email || '';
+          const checkoutData = data.data as Record<string, unknown> | undefined;
+          const customerObj = checkoutData?.customer as { email?: string } | undefined;
+          const customDataObj = checkoutData?.custom_data as { email?: string } | undefined;
+          const email = customerObj?.email || customDataObj?.email || '';
           setCustomerEmail(email);
           setIsCompleted(true);
         }
       }
     }).then((paddleInstance) => {
       if (paddleInstance) {
-        setPaddle(paddleInstance);
         paddleRef.current = paddleInstance;
         
         // Open immediately inline

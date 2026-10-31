@@ -22,7 +22,7 @@ export default function TermsOfService() {
         <div className="bg-[#FFF9F2] border-l-4 border-[#8B5E3C] p-5 rounded-r-xl mb-6">
           <p className="font-bold text-[#8B5E3C] mb-2">Important Notice</p>
           <p className="text-sm text-zinc-700">
-            PupLume provides AI-generated insights, training guides, and tracking tools for informational purposes only. <strong>We are not veterinarians or certified animal behaviorists.</strong> Our service is not a substitute for professional veterinary advice, diagnosis, or treatment. Always consult with a qualified professional regarding your pet's health.
+            PupLume provides AI-generated insights, training guides, and tracking tools for informational purposes only. <strong>We are not veterinarians or certified animal behaviorists.</strong> Our service is not a substitute for professional veterinary advice, diagnosis, or treatment. Always consult with a qualified professional regarding your pet&apos;s health.
           </p>
         </div>
       </section>

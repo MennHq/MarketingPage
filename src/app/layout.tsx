@@ -1,28 +1,54 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Grandstander } from "next/font/google";
+import { PostHogProvider } from "../components/PostHogProvider";
+import "./globals.css";
 
 const grandstander = Grandstander({
   variable: "--font-grandstander",
   subsets: ["latin"],
+  display: "swap",
 });
-import { ClientClerkProvider } from '../components/ClientClerkProvider';
-import { PostHogProvider } from '../components/PostHogProvider';
-import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#FFF9F2",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://puplume.pet"),
   title: "PupLume | Puppy Training App & Digital Organizer",
   description: "The ultimate intelligent companion for new dog parents. Track potty training, manage health records, and get AI-powered puppy training advice all in one app.",
+  alternates: {
+    canonical: "https://puplume.pet",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     title: "PupLume | Puppy Training App & Digital Organizer",
     description: "The ultimate intelligent companion for new dog parents.",
@@ -68,35 +94,37 @@ export default function RootLayout({
   };
 
   return (
-    <ClientClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-      <html
-        lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} ${grandstander.variable} h-full antialiased font-grandstander`}
-        suppressHydrationWarning
-      >
-        <body className={`${grandstander.className} min-h-full flex flex-col`} suppressHydrationWarning>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                if ('serviceWorker' in navigator) {
-                  navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                    for(let registration of registrations) {
-                      registration.unregister();
-                    }
-                  });
-                }
-              `,
-            }}
-          />
-          <PostHogProvider>
-            {children}
-          </PostHogProvider>
-        </body>
-      </html>
-    </ClientClerkProvider>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${grandstander.variable} h-full antialiased font-grandstander`}
+      suppressHydrationWarning
+    >
+      <head>
+        <link rel="preconnect" href="https://us-assets.i.posthog.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://us.i.posthog.com" />
+      </head>
+      <body className={`${grandstander.className} min-h-full flex flex-col`} suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                  for(let registration of registrations) {
+                    registration.unregister();
+                  }
+                });
+              }
+            `,
+          }}
+        />
+        <PostHogProvider>
+          {children}
+        </PostHogProvider>
+      </body>
+    </html>
   );
 }

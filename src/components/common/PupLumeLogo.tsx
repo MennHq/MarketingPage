@@ -47,6 +47,7 @@ export const PupLumeLogo: React.FC<PupLumeLogoProps> = ({
           width={iconDimensions.w}
           height={iconDimensions.h}
           className="flex-shrink-0 drop-shadow-xs"
+          aria-hidden="true"
         >
           <defs>
             <linearGradient id="logoPupGrad" x1="0%" y1="0%" x2="100%" y2="100%">

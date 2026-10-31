@@ -27,9 +27,9 @@ export default function PrivacyPolicy() {
         <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">2. How We Use Your Information</h2>
         <p className="mb-4">Your data is strictly used to provide, maintain, and improve the PupLume service. Specifically, we use it to:</p>
         <ul className="list-disc pl-5 space-y-2 mb-6">
-          <li>Generate AI-driven insights regarding your puppy's routine and behavior patterns.</li>
+          <li>Generate AI-driven insights regarding your puppy&apos;s routine and behavior patterns.</li>
           <li>Schedule push notifications and automated vet reminders.</li>
-          <li>Sync your puppy's profile seamlessly across devices for family members and dog walkers.</li>
+          <li>Sync your puppy&apos;s profile seamlessly across devices for family members and dog walkers.</li>
         </ul>
       </section>
 
@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">4. Children's Privacy</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">4. Children&apos;s Privacy</h2>
         <p className="mb-4">
           While PupLume is a family-friendly tool designed for raising puppies, our Terms of Service require account creators to be at least 13 years of age (or 16 in certain jurisdictions, as required by law). Parents or legal guardians are encouraged to manage profiles on behalf of younger children. We do not knowingly collect personal information from children under 13 without verifiable parental consent.
         </p>
