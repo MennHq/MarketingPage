@@ -6,7 +6,7 @@ import "./globals.css";
 const grandstander = Grandstander({
   variable: "--font-grandstander",
   subsets: ["latin"],
-  display: "swap",
+  display: "optional",
   preload: true,
 });
 
@@ -92,19 +92,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                  for(let registration of registrations) {
-                    registration.unregister();
-                  }
-                });
-              }
-            `,
-          }}
         />
         <PostHogProvider>
           {children}

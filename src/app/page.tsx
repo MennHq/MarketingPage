@@ -38,7 +38,7 @@ export default function Home() {
                 <span className="w-2 h-2 rounded-full bg-[#8B5E3C] animate-pulse" />
                 Smart Assistant
               </div>
-              <h1 className="font-[family-name:var(--font-brand)] text-5xl md:text-7xl font-black tracking-tight leading-[1.1] text-[#2C211B]">
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.1] text-[#2C211B]">
                 Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5E3C] to-[#E9B89C]">puppy&apos;s</span> digital home.<br />Raise them without the stress.
               </h1>
               <p className="text-lg md:text-xl text-[#766A63] max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
