@@ -3,8 +3,6 @@ import { PupLumeLogo } from "@/components/common/PupLumeLogo";
 import { HeroAuthButton } from "@/components/common/AuthButtons";
 import { MarketingHeader } from "@/components/layout/MarketingHeader";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] selection:bg-[#8B5E3C] selection:text-white overflow-x-hidden">
@@ -238,9 +236,9 @@ export default function Home() {
             </div>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-6">Expert training, built-in.</h2>
             <p className="text-zinc-300 font-medium text-lg max-w-2xl mx-auto mb-10 leading-relaxed">Unlock the PupLume Academy to get step-by-step guides on crate training, biting, and basic obedience. Tailored exactly to your puppy&apos;s current age.</p>
-            <a href={`${APP_URL}/?login=true`} className="inline-flex px-8 py-3.5 text-sm font-bold text-[#2C211B] bg-[#FFF9F2] rounded-full hover:bg-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95">
+            <Link href="/academy" className="inline-flex px-8 py-3.5 text-sm font-bold text-[#2C211B] bg-[#FFF9F2] rounded-full hover:bg-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95">
               Explore the Academy
-            </a>
+            </Link>
           </div>
         </section>
 

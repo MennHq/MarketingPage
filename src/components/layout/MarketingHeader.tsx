@@ -6,8 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Sparkles, GraduationCap, Heart, Shield, ArrowRight } from "lucide-react";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
 import { NavAuthButton } from "@/components/common/AuthButtons";
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+import { useAppUrl } from "@/lib/urls";
 
 interface NavLinkItem {
   name: string;
@@ -46,6 +45,7 @@ const navLinks: NavLinkItem[] = [
 export function MarketingHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const appUrl = useAppUrl();
 
   // Close mobile drawer when route changes
   useEffect(() => {
@@ -112,7 +112,7 @@ export function MarketingHeader() {
 
           {/* Quick App Link for small screens */}
           <a
-            href={`${APP_URL}/?login=true`}
+            href={`${appUrl}/?login=true`}
             className="sm:hidden px-3.5 py-1.5 text-xs font-bold text-white bg-[#8B5E3C] rounded-full hover:bg-[#5F3E29] transition-all shadow-sm active:scale-95"
           >
             Open App
@@ -185,7 +185,7 @@ export function MarketingHeader() {
             {/* Bottom Auth Actions inside Mobile Drawer */}
             <div className="pt-3 border-t border-[#E8DDD3] flex flex-col gap-2.5">
               <a
-                href={`${APP_URL}/?login=true`}
+                href={`${appUrl}/?login=true`}
                 className="w-full py-3.5 text-center text-sm font-bold text-white bg-[#8B5E3C] rounded-2xl hover:bg-[#5F3E29] transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
               >
                 <span>Get Started Free</span>
@@ -193,7 +193,7 @@ export function MarketingHeader() {
               </a>
 
               <a
-                href={`${APP_URL}/?login=true`}
+                href={`${appUrl}/?login=true`}
                 className="w-full py-2.5 text-center text-xs font-bold text-[#8B5E3C] hover:text-[#5F3E29] transition-colors"
               >
                 Already have an account? Log In

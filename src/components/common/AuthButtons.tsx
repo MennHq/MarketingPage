@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+import { useAppUrl } from "@/lib/urls";
 
 export function NavAuthButton() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const appUrl = useAppUrl();
 
   useEffect(() => {
     // Fast non-blocking check for active session cookie
@@ -25,7 +25,7 @@ export function NavAuthButton() {
   if (isLoggedIn) {
     return (
       <a
-        href={`${APP_URL}/?login=true`}
+        href={`${appUrl}/?login=true`}
         className="px-6 py-2.5 text-sm font-bold text-white bg-[#8B5E3C] rounded-full hover:bg-[#5F3E29] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95"
       >
         Open Dashboard
@@ -36,13 +36,13 @@ export function NavAuthButton() {
   return (
     <>
       <a
-        href={`${APP_URL}/?login=true`}
+        href={`${appUrl}/?login=true`}
         className="hidden sm:inline-flex px-5 py-2.5 text-sm font-bold text-[#8B5E3C] hover:text-[#5F3E29] transition-colors"
       >
         Log In
       </a>
       <a
-        href={`${APP_URL}/?login=true`}
+        href={`${appUrl}/?login=true`}
         className="px-6 py-2.5 text-sm font-bold text-white bg-[#8B5E3C] rounded-full hover:bg-[#5F3E29] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95"
       >
         Sign Up for Free
@@ -53,6 +53,7 @@ export function NavAuthButton() {
 
 export function HeroAuthButton() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const appUrl = useAppUrl();
 
   useEffect(() => {
     try {
@@ -70,7 +71,7 @@ export function HeroAuthButton() {
   if (isLoggedIn) {
     return (
       <a
-        href={`${APP_URL}/?login=true`}
+        href={`${appUrl}/?login=true`}
         className="font-[family-name:var(--font-brand)] w-full sm:w-auto px-8 py-4 text-lg font-bold text-white bg-[#8B5E3C] rounded-full hover:bg-[#5F3E29] transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 active:scale-95 text-center"
       >
         Open Dashboard
@@ -81,7 +82,7 @@ export function HeroAuthButton() {
   return (
     <>
       <a
-        href={`${APP_URL}/?login=true`}
+        href={`${appUrl}/?login=true`}
         className="font-[family-name:var(--font-brand)] w-full sm:w-auto px-8 py-4 text-lg font-bold text-white bg-[#8B5E3C] rounded-full hover:bg-[#5F3E29] transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 active:scale-95 text-center"
       >
         Sign Up for Free

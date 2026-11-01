@@ -2,12 +2,9 @@ import Link from "next/link";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
 import { Check, Shield, ArrowRight, Dog } from "lucide-react";
 import { MarketingHeader } from "@/components/layout/MarketingHeader";
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+import { AppActionLink } from "@/components/common/AppActionLink";
 
 export default function PricingPage() {
-  const loginUrl = `${APP_URL}/?login=true`;
-
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] font-sans selection:bg-[#8B5E3C] selection:text-white">
       {/* Navbar with Responsive Mobile Navigation */}
@@ -59,13 +56,13 @@ export default function PricingPage() {
                 <FeatureItem text="Free Future Updates" />
               </ul>
 
-              <a 
-                href={loginUrl} 
+              <AppActionLink 
+                hrefPath="/?login=true" 
                 className="w-full h-14 text-lg font-bold text-white bg-[#8B5E3C] rounded-2xl hover:bg-[#5F3E29] transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2"
               >
-                Get Started Now
+                <span>Get Started Now</span>
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </AppActionLink>
               
               <p className="text-center text-xs font-bold text-[#8B5E3C] mt-4 uppercase tracking-wider">
                 100% Fully Paid. No Freemium.
