@@ -1,57 +1,43 @@
 import Link from "next/link";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
-import { NavAuthButton, HeroAuthButton } from "@/components/common/AuthButtons";
+import { HeroAuthButton } from "@/components/common/AuthButtons";
+import { MarketingHeader } from "@/components/layout/MarketingHeader";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] selection:bg-[#8B5E3C] selection:text-white overflow-x-hidden">
-      {/* Navbar */}
-      <header className="fixed top-0 z-50 w-full bg-[#FFF9F2]/90 backdrop-blur-lg border-b border-[#E8DDD3] transition-all">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" aria-label="PupLume Home" className="flex items-center cursor-pointer transform hover:scale-105 transition-transform origin-left">
-            <PupLumeLogo variant="full" size="lg" />
-          </Link>
-          <nav aria-label="Main Navigation" className="hidden md:flex gap-10 text-sm font-bold text-[#766A63]">
-            <Link href="/features" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Features</Link>
-            <Link href="/academy" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Academy</Link>
-            <Link href="/health" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Health Center</Link>
-            <Link href="/pricing" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Pricing</Link>
-          </nav>
-          <div className="flex gap-4 items-center">
-            <NavAuthButton />
-          </div>
-        </div>
-      </header>
+      {/* Navbar with Responsive Mobile Navigation */}
+      <MarketingHeader />
 
       {/* Main Content */}
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-18 sm:pt-20">
         {/* Hero Section */}
-        <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32">
+        <section className="relative overflow-hidden pt-8 pb-16 sm:pt-12 sm:pb-20 md:pt-20 md:pb-32">
           {/* Subtle warm glow background */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E9B89C]/20 rounded-full blur-3xl pointer-events-none -z-10" />
 
-          <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
-            <div className="flex-1 text-center md:text-left space-y-6 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F3E7DA] text-[#8B5E3C] text-xs font-bold uppercase tracking-wider">
+          <div className="container mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-10 lg:gap-8">
+            <div className="flex-1 text-center md:text-left space-y-5 sm:space-y-6 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#F3E7DA] text-[#8B5E3C] text-xs font-bold uppercase tracking-wider">
                 <span className="w-2 h-2 rounded-full bg-[#8B5E3C] animate-pulse" />
                 Smart Assistant
               </div>
-              <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.1] text-[#2C211B]">
+              <h1 className="text-3.5xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.12] sm:leading-[1.1] text-[#2C211B]">
                 Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5E3C] to-[#E9B89C]">puppy&apos;s</span> digital home.<br />Raise them without the stress.
               </h1>
-              <p className="text-lg md:text-xl text-[#766A63] max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
+              <p className="text-base sm:text-lg md:text-xl text-[#766A63] max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
                 The ultimate puppy management app. Track routines, predict potty breaks, and get AI training advice instantly.
               </p>
-              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start pt-4">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center md:justify-start pt-2 sm:pt-4">
                 <HeroAuthButton />
               </div>
             </div>
             
-            <div className="flex-1 w-full max-w-[340px] relative z-10 lg:ml-auto">
+            <div className="flex-1 w-full max-w-[300px] sm:max-w-[340px] relative z-10 lg:ml-auto">
               <div 
-                className="relative mx-auto w-full aspect-[9/16] bg-white rounded-[3rem] border-[12px] border-[#2C211B] shadow-2xl overflow-hidden flex flex-col"
+                className="relative mx-auto w-full aspect-[9/16] bg-white rounded-[2.5rem] sm:rounded-[3rem] border-8 sm:border-[12px] border-[#2C211B] shadow-2xl overflow-hidden flex flex-col"
               >
                 <div className="flex-1 bg-[#FAF6F0] flex flex-col w-full h-full relative overflow-hidden" aria-hidden="true">
                   {/* App Header */}

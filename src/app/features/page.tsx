@@ -1,32 +1,17 @@
 import Link from "next/link";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
-import { NavAuthButton } from "@/components/common/AuthButtons";
+import { MarketingHeader } from "@/components/layout/MarketingHeader";
 
 export default function FeaturesPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] selection:bg-[#8B5E3C] selection:text-white overflow-x-hidden">
       {/* Navbar */}
-      <header className="fixed top-0 z-50 w-full bg-[#FFF9F2]/90 backdrop-blur-lg border-b border-[#E8DDD3] transition-all">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" aria-label="PupLume Home" className="flex items-center cursor-pointer transform hover:scale-105 transition-transform origin-left">
-            <PupLumeLogo variant="full" size="lg" />
-          </Link>
-          <nav aria-label="Main Navigation" className="hidden md:flex gap-10 text-sm font-bold text-[#766A63]">
-            <Link href="/features" className="text-[#8B5E3C] font-black scale-105 transition-all">Features</Link>
-            <Link href="/academy" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Academy</Link>
-            <Link href="/health" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Health Center</Link>
-            <Link href="/pricing" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Pricing</Link>
-          </nav>
-          <div className="flex gap-4 items-center">
-            <NavAuthButton />
-          </div>
-        </div>
-      </header>
+      <MarketingHeader />
 
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-18 sm:pt-20">
         {/* Features Section */}
-        <section id="features" className="py-24 bg-white relative">
-          <div className="container mx-auto px-6">
+        <section id="features" className="py-16 sm:py-24 bg-white relative">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-16">
               <h1 className="text-3xl md:text-5xl font-black text-[#2C211B] tracking-tight mb-4">Everything your puppy needs.</h1>
               <p className="text-[#766A63] font-medium text-lg max-w-2xl mx-auto">PupLume replaces your messy notebooks with an elegant, AI-powered system designed specifically for the chaotic first year of puppyhood.</p>

@@ -1,32 +1,17 @@
 import Link from "next/link";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
-import { NavAuthButton } from "@/components/common/AuthButtons";
+import { MarketingHeader } from "@/components/layout/MarketingHeader";
 
 export default function HealthPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] selection:bg-[#8B5E3C] selection:text-white overflow-x-hidden">
       {/* Navbar */}
-      <header className="fixed top-0 z-50 w-full bg-[#FFF9F2]/90 backdrop-blur-lg border-b border-[#E8DDD3] transition-all">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" aria-label="PupLume Home" className="flex items-center cursor-pointer transform hover:scale-105 transition-transform origin-left">
-            <PupLumeLogo variant="full" size="lg" />
-          </Link>
-          <nav aria-label="Main Navigation" className="hidden md:flex gap-10 text-sm font-bold text-[#766A63]">
-            <Link href="/features" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Features</Link>
-            <Link href="/academy" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Academy</Link>
-            <Link href="/health" className="text-[#8B5E3C] font-black scale-105 transition-all">Health Center</Link>
-            <Link href="/pricing" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Pricing</Link>
-          </nav>
-          <div className="flex gap-4 items-center">
-            <NavAuthButton />
-          </div>
-        </div>
-      </header>
+      <MarketingHeader />
 
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-18 sm:pt-20">
         {/* Health Center Section */}
-        <section id="health" className="py-24 bg-[#FAF6F0] border-y border-[#E8DDD3] relative overflow-hidden">
-          <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+        <section id="health" className="py-16 sm:py-24 bg-[#FAF6F0] border-y border-[#E8DDD3] relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-12 md:gap-16">
             <div className="flex-1">
               <h1 className="text-3xl md:text-5xl font-black text-[#2C211B] tracking-tight mb-6">Never miss a<br/><span className="text-[#8B5E3C]">vaccine again.</span></h1>
               <p className="text-[#766A63] font-medium text-lg mb-8 leading-relaxed">Keep your puppy&apos;s medical records, weight history, and vaccine schedule safely stored in the cloud. We&apos;ll automatically remind you when the next booster is due.</p>

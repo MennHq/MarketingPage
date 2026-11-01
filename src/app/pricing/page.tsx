@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
 import { Check, Shield, ArrowRight, Dog } from "lucide-react";
-import { NavAuthButton } from "@/components/common/AuthButtons";
+import { MarketingHeader } from "@/components/layout/MarketingHeader";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
@@ -10,33 +10,22 @@ export default function PricingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] font-sans selection:bg-[#8B5E3C] selection:text-white">
-      {/* Navbar */}
-      <header className="fixed top-0 z-50 w-full bg-[#FFF9F2]/90 backdrop-blur-lg border-b border-[#E8DDD3]">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" aria-label="PupLume Home">
-            <div className="flex items-center cursor-pointer transform hover:scale-105 transition-transform origin-left">
-              <PupLumeLogo variant="full" size="lg" />
-            </div>
-          </Link>
-          <nav className="flex gap-4">
-            <NavAuthButton />
-          </nav>
-        </div>
-      </header>
+      {/* Navbar with Responsive Mobile Navigation */}
+      <MarketingHeader />
 
       {/* Main Content */}
-      <main className="flex-1 pt-32 pb-24 px-6 relative overflow-hidden">
+      <main className="flex-1 pt-28 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 relative overflow-hidden">
         {/* Background Decorative Elements */}
         <div className="absolute top-10 left-[-10%] w-[600px] h-[600px] bg-[#8B5E3C] rounded-full blur-[120px] opacity-[0.03] pointer-events-none" />
         <div className="absolute bottom-10 right-[-10%] w-[500px] h-[500px] bg-[#F59E0B] rounded-full blur-[100px] opacity-[0.03] pointer-events-none" />
 
         <div className="container mx-auto max-w-4xl relative z-10 text-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#8B5E3C]/10 text-[#8B5E3C] font-bold text-sm mb-6 border border-[#8B5E3C]/20">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#8B5E3C]/10 text-[#8B5E3C] font-bold text-xs sm:text-sm mb-6 border border-[#8B5E3C]/20">
               <Shield className="w-4 h-4" /> Simple, Transparent Pricing
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-black mb-6 tracking-tight leading-tight">
+            <h1 className="text-3.5xl sm:text-5xl md:text-6xl font-black mb-4 sm:mb-6 tracking-tight leading-tight">
               One Price.<br className="md:hidden" /> A Lifetime of Care.
             </h1>
             <p className="text-xl text-[#766A63] mb-12 max-w-2xl mx-auto font-medium">

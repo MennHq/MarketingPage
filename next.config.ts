@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: [
+    '192.168.100.247',
+    '192.168.100.*',
+    'localhost:3001',
+    '127.0.0.1:3001',
+  ],
   turbopack: {
     root: '.',
   },

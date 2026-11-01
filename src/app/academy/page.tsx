@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
-import { NavAuthButton } from "@/components/common/AuthButtons";
+import { MarketingHeader } from "@/components/layout/MarketingHeader";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
@@ -8,27 +8,12 @@ export default function AcademyPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] selection:bg-[#8B5E3C] selection:text-white overflow-x-hidden">
       {/* Navbar */}
-      <header className="fixed top-0 z-50 w-full bg-[#FFF9F2]/90 backdrop-blur-lg border-b border-[#E8DDD3] transition-all">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" aria-label="PupLume Home" className="flex items-center cursor-pointer transform hover:scale-105 transition-transform origin-left">
-            <PupLumeLogo variant="full" size="lg" />
-          </Link>
-          <nav aria-label="Main Navigation" className="hidden md:flex gap-10 text-sm font-bold text-[#766A63]">
-            <Link href="/features" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Features</Link>
-            <Link href="/academy" className="text-[#8B5E3C] font-black scale-105 transition-all">Academy</Link>
-            <Link href="/health" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Health Center</Link>
-            <Link href="/pricing" className="hover:text-[#8B5E3C] hover:scale-105 transition-all">Pricing</Link>
-          </nav>
-          <div className="flex gap-4 items-center">
-            <NavAuthButton />
-          </div>
-        </div>
-      </header>
+      <MarketingHeader />
 
-      <main className="flex-1 pt-20">
+      <main className="flex-1 pt-18 sm:pt-20">
         {/* Academy Section */}
-        <section id="academy" className="py-24 bg-[#2C211B] text-white relative">
-          <div className="container mx-auto px-6 text-center">
+        <section id="academy" className="py-16 sm:py-24 bg-[#2C211B] text-white relative">
+          <div className="container mx-auto px-4 sm:px-6 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#5F3E29] text-white mb-8 shadow-lg" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </div>
