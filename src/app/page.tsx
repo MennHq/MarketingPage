@@ -11,13 +11,15 @@ import {
   QrCode, 
   Check, 
   ArrowRight, 
-  Star,
   CheckCircle2,
   Calendar,
   Bell,
   Activity,
   Smile,
-  Shield
+  Shield,
+  Lock,
+  Zap,
+  DollarSign
 } from "lucide-react";
 
 export default function Home() {
@@ -40,16 +42,10 @@ export default function Home() {
               {/* Left Column: Core Value Proposition */}
               <div className="lg:col-span-7 text-center lg:text-left space-y-6 max-w-2xl mx-auto lg:mx-0">
                 
-                {/* Social Proof Star Pill */}
+                {/* Brand Philosophy Pill */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8DDD3] shadow-xs text-xs font-semibold text-[#8B5E3C]">
-                  <div className="flex items-center text-amber-500">
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  </div>
-                  <span>Loved by 12,000+ Happy Puppy Parents</span>
+                  <Sparkles className="w-3.5 h-3.5 text-[#8B5E3C]" />
+                  <span>The Intelligent Companion for New Dog Parents</span>
                 </div>
 
                 {/* Main Headline */}
@@ -126,7 +122,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-[11px] font-bold text-[#2C211B]">Dad walked Bella</p>
-                    <p className="text-[9px] text-[#766A63]">22 mins • Potty success!</p>
+                    <p className="text-[9px] text-[#766A63]">22 mins • Potty logged</p>
                   </div>
                 </div>
 
@@ -178,7 +174,7 @@ export default function Home() {
                           <div className="bg-[#8B5E3C] h-full w-[78%] rounded-full" />
                         </div>
                         <div className="flex justify-between text-[10px] text-[#766A63]">
-                          <span>Accident Risk: <strong className="text-emerald-700">Very Low</strong></span>
+                          <span>Accident Risk: <strong className="text-emerald-700">Low</strong></span>
                           <span>Based on 11:30 Meal</span>
                         </div>
                       </div>
@@ -245,12 +241,12 @@ export default function Home() {
             <p className="text-xs font-bold uppercase tracking-wider text-[#766A63] mb-4">
               Designed For Every Puppy Breed &amp; Mixed Rescue
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm font-bold text-[#5F3E29]">
-              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🦮 Golden Retrievers</span>
-              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐶 French Bulldogs</span>
-              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐕 Corgis &amp; Dachshunds</span>
-              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐩 Labradoodles &amp; Poodles</span>
-              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐾 Rescue Puppies</span>
+            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 text-xs sm:text-sm font-semibold text-[#5F3E29]">
+              <span className="px-3.5 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🦮 Golden Retrievers</span>
+              <span className="px-3.5 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐶 French Bulldogs</span>
+              <span className="px-3.5 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐕 Corgis &amp; Dachshunds</span>
+              <span className="px-3.5 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐩 Labradoodles &amp; Poodles</span>
+              <span className="px-3.5 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐾 Rescue Puppies</span>
             </div>
           </div>
         </section>
@@ -284,7 +280,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-500 font-bold shrink-0 mt-0.5">✕</span>
-                    <span><strong>3 AM crate panic:</strong> Searching Reddit and forums in the dark wondering why your puppy won&apos;t sleep.</span>
+                    <span><strong>3 AM crate panic:</strong> Searching endless forums in the dark wondering why your puppy won&apos;t sleep.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-500 font-bold shrink-0 mt-0.5">✕</span>
@@ -305,7 +301,7 @@ export default function Home() {
                 <ul className="space-y-4 text-sm text-[#2C211B]">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span><strong>Predictive Potty AI:</strong> Smart alerts notify you 15 minutes before accidents happen based on meals and water.</span>
+                    <span><strong>Predictive Potty AI:</strong> Smart alerts notify you before accidents happen based on meals and water.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
@@ -357,11 +353,11 @@ export default function Home() {
                     Predictive Potty Timer
                   </h3>
                   <p className="text-sm text-[#6B5E55] leading-relaxed">
-                    Our smart algorithm learns your puppy&apos;s bladder patterns and calculates exact outdoor times based on feeding, naps, and age in weeks.
+                    Our smart algorithm learns your puppy&apos;s routine and calculates outdoor timing based on feeding, naps, and age in weeks.
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#E8DDD3] text-xs font-bold text-[#8B5E3C] flex items-center gap-1">
-                  <span>95% fewer indoor accidents</span>
+                  <span>Smart timing based on meals &amp; naps</span>
                   <span>→</span>
                 </div>
               </div>
@@ -467,95 +463,72 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* REVIEWS & WALL OF LOVE */}
+        {/* OUR CORE PRINCIPLES (HONEST, AUTHENTIC VALUE INSTEAD OF FAKE REVIEWS) */}
         {/* ========================================================================= */}
         <section className="py-20 sm:py-28 bg-[#FAF6F0]">
-          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
             
             <div className="text-center space-y-3 mb-16">
               <h2 className="text-3xl sm:text-5xl font-black text-[#2C211B] font-heading tracking-tight">
-                Loved by New Puppy Parents.
+                Built On Four Core Principles.
               </h2>
               <p className="text-base text-[#6B5E55] max-w-xl mx-auto">
-                Real feedback from owners who survived the first year with peace of mind.
+                Why puppy owners trust PupLume over traditional pet subscription apps.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-7">
+            <div className="grid sm:grid-cols-2 gap-6 sm:gap-7">
               
-              {/* Review 1 */}
-              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs flex flex-col justify-between">
-                <div>
-                  <div className="flex text-amber-500 mb-4">
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                  </div>
-                  <p className="text-sm text-[#2C211B] leading-relaxed italic mb-6">
-                    &quot;The predictive potty timer alone saved my hardwood floors. We went from 3 accidents a day to zero within 48 hours. Best $24.99 I have ever spent on a dog.&quot;
-                  </p>
+              {/* Principle 1 */}
+              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-[#FFF9F2] border border-[#E8DDD3] flex items-center justify-center text-xl text-[#8B5E3C]">
+                  🐾
                 </div>
-                <div className="flex items-center gap-3 pt-4 border-t border-[#F3E7DA]">
-                  <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center font-bold text-amber-800 text-sm">
-                    SM
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-[#2C211B]">Sarah Miller</p>
-                    <p className="text-[11px] text-[#766A63]">Mom to Charlie (Golden Retriever)</p>
-                  </div>
-                </div>
+                <h3 className="text-lg font-bold text-[#2C211B] font-heading">
+                  1. Positive Reinforcement First
+                </h3>
+                <p className="text-sm text-[#6B5E55] leading-relaxed">
+                  Every AI recommendation, academy guide, and habit suggestion follows certified, force-free canine behavior science. We focus on trust, gentle routines, and building a lifelong bond.
+                </p>
               </div>
 
-              {/* Review 2 */}
-              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs flex flex-col justify-between">
-                <div>
-                  <div className="flex text-amber-500 mb-4">
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                  </div>
-                  <p className="text-sm text-[#2C211B] leading-relaxed italic mb-6">
-                    &quot;I had severe puppy blues in week 2. Crying in crate, biting hands... The 24/7 AI Co-Pilot gave me actionable tips at 3 AM that immediately worked.&quot;
-                  </p>
+              {/* Principle 2 */}
+              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-[#FFF9F2] border border-[#E8DDD3] flex items-center justify-center text-xl text-[#8B5E3C]">
+                  🔒
                 </div>
-                <div className="flex items-center gap-3 pt-4 border-t border-[#F3E7DA]">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-800 text-sm">
-                    MT
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-[#2C211B]">Marcus Taylor</p>
-                    <p className="text-[11px] text-[#766A63]">Dad to Rocky (French Bulldog)</p>
-                  </div>
-                </div>
+                <h3 className="text-lg font-bold text-[#2C211B] font-heading">
+                  2. 100% Private &amp; Zero Ad Tracking
+                </h3>
+                <p className="text-sm text-[#6B5E55] leading-relaxed">
+                  Your puppy&apos;s memories, health records, and daily habits belong solely to you. We write zero tracking cookies, run zero third-party ad networks, and never sell your data to pet food brands.
+                </p>
               </div>
 
-              {/* Review 3 */}
-              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs flex flex-col justify-between">
-                <div>
-                  <div className="flex text-amber-500 mb-4">
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                    <Star className="w-4 h-4 fill-amber-400" />
-                  </div>
-                  <p className="text-sm text-[#2C211B] leading-relaxed italic mb-6">
-                    &quot;Zero monthly subscriptions is refreshing. Every other pet app tries to charge $14.99 a month. One payment and our whole family has lifetime access.&quot;
-                  </p>
+              {/* Principle 3 */}
+              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-[#FFF9F2] border border-[#E8DDD3] flex items-center justify-center text-xl text-[#8B5E3C]">
+                  ⚡
                 </div>
-                <div className="flex items-center gap-3 pt-4 border-t border-[#F3E7DA]">
-                  <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center font-bold text-emerald-800 text-sm">
-                    EK
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-[#2C211B]">Emily &amp; Dan</p>
-                    <p className="text-[11px] text-[#766A63]">Parents to Milo (Aussie Mix)</p>
-                  </div>
+                <h3 className="text-lg font-bold text-[#2C211B] font-heading">
+                  3. Fast &amp; Offline-Ready (PWA)
+                </h3>
+                <p className="text-sm text-[#6B5E55] leading-relaxed">
+                  Log a potty break or a meal in under 3 seconds directly from your phone&apos;s home screen. Built as a progressive web app that operates seamlessly even in weak-signal backyards.
+                </p>
+              </div>
+
+              {/* Principle 4 */}
+              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-[#FFF9F2] border border-[#E8DDD3] flex items-center justify-center text-xl text-[#8B5E3C]">
+                  💰
                 </div>
+                <h3 className="text-lg font-bold text-[#2C211B] font-heading">
+                  4. One Honest Price, No Traps
+                </h3>
+                <p className="text-sm text-[#6B5E55] leading-relaxed">
+                  No monthly renewal shocks, no feature gating, and no trial expirations. One straightforward payment of $24.99 grants your family lifetime access and all future feature releases.
+                </p>
               </div>
 
             </div>
@@ -580,14 +553,13 @@ export default function Home() {
 
             <div className="max-w-lg mx-auto bg-gradient-to-br from-[#FFF9F2] to-white rounded-3xl border-2 border-[#8B5E3C] shadow-xl overflow-hidden p-8 sm:p-10 text-center relative">
               
-              <div className="inline-block px-3.5 py-1 rounded-full bg-[#8B5E3C] text-white text-xs font-extrabold uppercase tracking-wider mb-6">
-                Lifetime Founding Member
+              <div className="inline-block px-3.5 py-1 rounded-full bg-[#8B5E3C] text-white text-xs font-bold uppercase tracking-wider mb-6">
+                Lifetime Access • One-Time Payment
               </div>
 
               <div className="flex items-baseline justify-center gap-2 mb-3">
                 <span className="text-5xl sm:text-6xl font-black text-[#2C211B] font-heading">$24.99</span>
-                <span className="text-sm font-bold text-[#766A63] line-through">$49.99</span>
-                <span className="text-xs font-bold text-[#8B5E3C] bg-[#FFF9F2] px-2 py-1 rounded-md border border-[#E8DDD3]">Save 50%</span>
+                <span className="text-sm font-bold text-[#766A63]">USD</span>
               </div>
 
               <p className="text-xs font-semibold text-[#766A63] mb-8">
@@ -721,7 +693,7 @@ export default function Home() {
               Make every moment count.
             </h2>
             <p className="text-zinc-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-              Join thousands of happy, calm puppy parents who raise well-behaved dogs with PupLume.
+              Give your puppy the calm, structured, loving start they deserve from Day 1.
             </p>
             <div className="pt-2">
               <a
