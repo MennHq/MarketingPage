@@ -34,8 +34,11 @@ export default function TermsOfService() {
             <strong>PupLume and its AI-powered features are NOT licensed veterinarians, certified animal hospitals, or emergency poison control centers.</strong> The content, puppy milestones, potty schedule suggestions, and AI chat responses are provided strictly for routine tracking and educational purposes.
           </p>
         </div>
+        <div className="bg-red-50 border border-red-200 p-4 rounded-xl mb-4 text-xs sm:text-sm text-red-900 leading-relaxed">
+          <strong>EMERGENCY WARNING:</strong> If your puppy has ingested chocolate, toxic plants, human medications, foreign objects, is choking, or is in physical trauma, <strong>do NOT wait for AI chat replies</strong>. Contact the ASPCA Animal Poison Control Center (888-426-4435 in the US) or your nearest 24/7 emergency veterinary hospital immediately.
+        </div>
         <p className="mb-4">
-          The Service is <strong>not</strong> a substitute for professional veterinary clinical diagnosis, medical advice, prescription, or emergency care. Always consult a licensed veterinarian for specific medical concerns, sudden behavior changes, toxic ingestion emergencies, or illness. Never disregard or delay seeking professional veterinary care because of information provided by PupLume.
+          The Service is <strong>not</strong> a substitute for professional veterinary clinical diagnosis, medical advice, prescription, or emergency care. Never disregard or delay seeking professional veterinary care because of information provided by PupLume.
         </p>
       </section>
 
@@ -46,7 +49,7 @@ export default function TermsOfService() {
           When you create an account, you agree to provide accurate, current, and complete information. You are responsible for safeguarding your login credentials and for all activities that take place under your account.
         </p>
         <p className="mb-4">
-          Notify us immediately at <a href="mailto:support@puplume.pet" className="text-[#8B5E3C] underline font-semibold">support@puplume.pet</a> if you suspect any unauthorized access to or compromise of your account.
+          Notify us immediately at <a href="mailto:support@puplume.pet" className="text-[#8B5E3C] underline font-semibold">support@puplume.pet</a> if you suspect any unauthorized access to or compromise of your account. We reserve the right to suspend or terminate accounts that violate our rules or abuse the Service.
         </p>
       </section>
 
@@ -61,9 +64,25 @@ export default function TermsOfService() {
         </p>
       </section>
 
-      {/* 5. Payments, Subscriptions & Merchant of Record */}
+      {/* 5. Copyright & DMCA Notice (Stolen Photo Shield) */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">5. Pricing, Billing & Merchant of Record</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">5. Copyright & DMCA Takedown Policy</h2>
+        <p className="mb-4">
+          PupLume respects the intellectual property rights of others and complies with the Digital Millennium Copyright Act (&quot;DMCA&quot;). If you believe that any image, text, or file uploaded to PupLume infringes your copyright, please notify our designated Copyright Agent by email at:
+        </p>
+        <div className="bg-[#FFF9F2] p-4 rounded-xl border border-[#E8DDD3] mb-4 text-sm">
+          <p className="font-bold text-[#2C211B]">DMCA Copyright Agent</p>
+          <p className="text-zinc-700 mt-1">Email: <a href="mailto:support@puplume.pet" className="text-[#8B5E3C] underline font-semibold">support@puplume.pet</a></p>
+          <p className="text-xs text-zinc-500 mt-1">Subject Line: &quot;DMCA Takedown Request&quot;</p>
+        </div>
+        <p className="mb-4">
+          Please provide: (1) Identification of the copyrighted work, (2) Identification of the material to be removed including URL or description, (3) Your contact details, and (4) A statement that you have a good faith belief the use is unauthorized. Upon receipt of a valid notice, we will expeditiously remove or disable access to the infringing material.
+        </p>
+      </section>
+
+      {/* 6. Payments, Subscriptions & Merchant of Record */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">6. Pricing, Billing & Merchant of Record</h2>
         <p className="mb-4">
           PupLume offers free features and paid premium offerings (such as lifetime passes or subscription plans). All prices are displayed in USD or your local currency where applicable.
         </p>
@@ -75,9 +94,9 @@ export default function TermsOfService() {
         </p>
       </section>
 
-      {/* 6. Refund Policy Reference */}
+      {/* 7. Refund Policy Reference */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">6. Refund Policy</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">7. Refund Policy</h2>
         <p className="mb-4">
           Because PupLume delivers immediate digital access to AI tools, printable resources, and premium features, purchases are generally final. However, we maintain compassionate exceptions for unforeseen hardships or technical issues within 14 days of purchase.
         </p>
@@ -86,9 +105,9 @@ export default function TermsOfService() {
         </p>
       </section>
 
-      {/* 7. Acceptable Use Policy */}
+      {/* 8. Acceptable Use Policy */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">7. Acceptable Use Policy</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">8. Acceptable Use Policy</h2>
         <p className="mb-4">You agree that you will not:</p>
         <ul className="list-disc pl-5 space-y-2 mb-4">
           <li>Use the Service for any unlawful purpose, animal abuse, or unauthorized commercial activity.</li>
@@ -99,9 +118,9 @@ export default function TermsOfService() {
         </ul>
       </section>
 
-      {/* 8. Warranty Disclaimer */}
+      {/* 9. Warranty Disclaimer */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">8. Disclaimer of Warranties (&quot;AS-IS&quot;)</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">9. Disclaimer of Warranties (&quot;AS-IS&quot;)</h2>
         <div className="bg-zinc-50 border border-zinc-200 p-5 rounded-2xl mb-4">
           <p className="text-xs uppercase font-bold text-zinc-700 tracking-wide mb-2">Legal Disclaimer</p>
           <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed uppercase">
@@ -113,9 +132,9 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* 9. Limitation of Liability */}
+      {/* 10. Limitation of Liability */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">9. Limitation of Liability</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">10. Limitation of Liability</h2>
         <div className="bg-zinc-50 border border-zinc-200 p-5 rounded-2xl mb-4">
           <p className="text-xs uppercase font-bold text-zinc-700 tracking-wide mb-2">Liability Cap</p>
           <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed uppercase">
@@ -127,33 +146,50 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* 10. Indemnification */}
+      {/* 11. Dispute Resolution: Arbitration & Class Action Waiver (The Full Shield) */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">10. Indemnification</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">11. Dispute Resolution: Binding Arbitration & Class Action Waiver</h2>
+        <div className="bg-[#FFF9F2] border border-[#E8DDD3] p-5 rounded-2xl mb-4">
+          <p className="font-bold text-[#8B5E3C] text-sm mb-2 uppercase tracking-wide">Please Read Carefully — Affects Your Legal Rights</p>
+          <p className="text-sm text-zinc-800 leading-relaxed mb-3">
+            <strong>Mandatory Informal Resolution:</strong> Before initiating any formal legal proceeding, you agree to contact us at <a href="mailto:support@puplume.pet" className="text-[#8B5E3C] underline font-semibold">support@puplume.pet</a> with a detailed description of your issue. Both parties agree to make a good faith effort to resolve the dispute informally for at least thirty (30) days.
+          </p>
+          <p className="text-sm text-zinc-800 leading-relaxed mb-3">
+            <strong>Binding Individual Arbitration:</strong> If the dispute is not resolved within 30 days, any controversy or claim arising out of or relating to these Terms or the Service shall be settled by binding individual arbitration administered under the rules of the American Arbitration Association (&quot;AAA&quot;).
+          </p>
+          <p className="text-xs sm:text-sm font-bold text-zinc-900 uppercase leading-relaxed">
+            CLASS ACTION WAIVER: YOU AND PUPLUME AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN AN INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, REPRESENTATIVE, OR COLLECTIVE PROCEEDING. NO ARBITRATOR OR COURT MAY CONSOLIDATE MORE THAN ONE PERSON&apos;S CLAIMS OR PRESIDE OVER ANY FORM OF REPRESENTATIVE OR CLASS PROCEEDING.
+          </p>
+        </div>
+      </section>
+
+      {/* 12. Indemnification */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">12. Indemnification</h2>
         <p className="mb-4">
           You agree to defend, indemnify, and hold harmless PupLume, its operators, and affiliates from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use or misuse of the Service, violation of these Terms, or infringement of any third-party rights.
         </p>
       </section>
 
-      {/* 11. Termination */}
+      {/* 13. Termination */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">11. Termination</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">13. Termination</h2>
         <p className="mb-4">
           You may terminate your account at any time by requesting deletion in your settings or emailing support. We reserve the right to suspend or terminate your access to the Service immediately and without prior notice if you violate these Terms or engage in fraudulent or abusive behavior.
         </p>
       </section>
 
-      {/* 12. Changes to These Terms */}
+      {/* 14. Changes to These Terms */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">12. Changes to These Terms</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">14. Changes to These Terms</h2>
         <p className="mb-4">
           We may update these Terms from time to time. When changes occur, we will update the &quot;Effective Date&quot; at the top of this document. Continued use of the Service after changes take effect constitutes your acceptance of the revised Terms.
         </p>
       </section>
 
-      {/* 13. Contact Information */}
+      {/* 15. Contact Information */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">13. Contact & Support</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">15. Contact & Support</h2>
         <p className="mb-4">
           For any questions, legal inquiries, or notices regarding these Terms, please contact us at:
         </p>
