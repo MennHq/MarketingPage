@@ -82,10 +82,13 @@ export default function PricingPage() {
           <p className="text-sm font-medium mb-4">
             &copy; {new Date().getFullYear()} PupLume. All rights reserved.
           </p>
-          <div className="flex justify-center gap-6 text-sm font-semibold">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-semibold">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="/legal/terms" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/legal/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/legal/refund" className="hover:text-white transition-colors">Refund Policy</Link>
+            <Link href="/legal/cookies" className="hover:text-white transition-colors">Cookies</Link>
+            <a href="mailto:support@puplume.pet" className="hover:text-white transition-colors">Contact</a>
           </div>
         </div>
       </footer>

@@ -55,9 +55,18 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-200 bg-white py-12">
-        <div className="container mx-auto px-6 text-center text-sm font-medium text-zinc-400">
-          Built for puppies and their humans.
+      <footer className="border-t border-zinc-200 bg-white py-10">
+        <div className="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-zinc-500">
+          <div>
+            &copy; {new Date().getFullYear()} PupLume. All rights reserved.
+          </div>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <Link href="/legal/privacy" className="hover:text-[#8B5E3C] transition-colors">Privacy Policy</Link>
+            <Link href="/legal/terms" className="hover:text-[#8B5E3C] transition-colors">Terms of Service</Link>
+            <Link href="/legal/refund" className="hover:text-[#8B5E3C] transition-colors">Refund Policy</Link>
+            <Link href="/legal/cookies" className="hover:text-[#8B5E3C] transition-colors">Cookie Policy</Link>
+            <a href="mailto:support@puplume.pet" className="hover:text-[#8B5E3C] transition-colors">support@puplume.pet</a>
+          </div>
         </div>
       </footer>
     </div>

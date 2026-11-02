@@ -73,61 +73,88 @@ export default function CheckoutPage() {
     : 'http://localhost:3000?login=true';
 
   return (
-    <div className="min-h-screen bg-[#FFF9F2] flex items-center justify-center p-4 sm:p-8 font-sans">
-      <div className="max-w-md w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#F5F0EA] p-8 text-center">
-        
-        {isCompleted ? (
-          <div className="py-6 space-y-5 animate-in fade-in zoom-in-95 duration-200">
-            <div className="w-16 h-16 bg-[#F3E7DA] text-[#8B5E3C] rounded-2xl flex items-center justify-center mx-auto text-3xl shadow-sm">
-              🐾
-            </div>
+    <div className="min-h-screen bg-[#FFF9F2] flex flex-col justify-between p-4 sm:p-8 font-sans">
+      <div className="flex-1 flex items-center justify-center">
+        <div className="max-w-md w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#F5F0EA] p-6 sm:p-8 text-center">
+          
+          {isCompleted ? (
+            <div className="py-6 space-y-5 animate-in fade-in zoom-in-95 duration-200">
+              <div className="w-16 h-16 bg-[#F3E7DA] text-[#8B5E3C] rounded-2xl flex items-center justify-center mx-auto text-3xl shadow-sm">
+                🐾
+              </div>
 
-            <div>
-              <h1 className="text-2xl font-extrabold text-[#2C211B] mb-1">
-                Payment Successful!
-              </h1>
-              <p className="text-[#766A63] text-sm">
-                Welcome to the PupLume Pack. Lifetime access is now unlocked.
-              </p>
-              {customerEmail && (
-                <div className="mt-3 inline-block px-3 py-1 bg-[#FFF9F2] border border-[#E8DDD3] rounded-full text-xs font-bold text-[#8B5E3C]">
-                  Account: {customerEmail}
+              <div>
+                <h1 className="text-2xl font-extrabold text-[#2C211B] mb-1">
+                  Payment Successful!
+                </h1>
+                <p className="text-[#766A63] text-sm">
+                  Welcome to the PupLume Pack. Lifetime access is now unlocked.
+                </p>
+                {customerEmail && (
+                  <div className="mt-3 inline-block px-3 py-1 bg-[#FFF9F2] border border-[#E8DDD3] rounded-full text-xs font-bold text-[#8B5E3C]">
+                    Account: {customerEmail}
+                  </div>
+                )}
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href={targetAppUrl}
+                  className="w-full inline-block py-3.5 px-6 rounded-2xl bg-[#8B5E3C] hover:bg-[#6D492F] text-white font-extrabold text-sm transition-all shadow-md hover:shadow-lg cursor-pointer"
+                >
+                  Go to Puppy Dashboard →
+                </a>
+                <p className="text-[11px] text-[#A39B96] mt-3">
+                  Redirecting automatically in {countdown}s...
+                </p>
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="text-center mb-6">
+                <h1 className="text-2xl font-extrabold text-[#2C211B] mb-2">Get PupLume Forever</h1>
+                <p className="text-[#766A63] text-sm">One-time payment of $24.99. No subscriptions.</p>
+              </div>
+
+              <div className="min-h-[450px] w-full">
+                <div className="paddle-inline-frame w-full"></div>
+              </div>
+
+              {/* Compliance Note for Paddle / Stripe Audits */}
+              <div className="mt-4 pt-4 border-t border-[#F5F0EA] text-[11px] text-[#766A63] leading-relaxed">
+                Payments processed securely by <span className="font-semibold text-[#2C211B]">Paddle</span> (Merchant of Record).
+                <div className="mt-1">
+                  By completing your purchase, you agree to our{' '}
+                  <Link href="/legal/terms" className="text-[#8B5E3C] underline hover:text-[#5F3E29]">Terms of Service</Link>,{' '}
+                  <Link href="/legal/privacy" className="text-[#8B5E3C] underline hover:text-[#5F3E29]">Privacy Policy</Link>, and{' '}
+                  <Link href="/legal/refund" className="text-[#8B5E3C] underline hover:text-[#5F3E29]">Refund Policy</Link>.
                 </div>
-              )}
-            </div>
+              </div>
 
-            <div className="pt-2">
-              <a
-                href={targetAppUrl}
-                className="w-full inline-block py-3.5 px-6 rounded-2xl bg-[#8B5E3C] hover:bg-[#6D492F] text-white font-extrabold text-sm transition-all shadow-md hover:shadow-lg cursor-pointer"
-              >
-                Go to Puppy Dashboard →
-              </a>
-              <p className="text-[11px] text-[#A39B96] mt-3">
-                Redirecting automatically in {countdown}s...
-              </p>
-            </div>
-          </div>
-        ) : (
-          <>
-            <div className="text-center mb-6">
-              <h1 className="text-2xl font-extrabold text-[#2C211B] mb-2">Get PupLume Forever</h1>
-              <p className="text-[#766A63] text-sm">One-time payment of $24.99. No subscriptions.</p>
-            </div>
+              <div className="mt-4 text-center">
+                <Link href="/" className="text-xs text-[#766A63] hover:text-[#2C211B] font-medium underline">
+                  ← Cancel and return to home
+                </Link>
+              </div>
+            </>
+          )}
 
-            <div className="min-h-[450px] w-full">
-              <div className="paddle-inline-frame w-full"></div>
-            </div>
-
-            <div className="mt-6 text-center">
-              <Link href="/" className="text-xs text-[#766A63] hover:text-[#2C211B] font-medium underline">
-                Cancel and return to home
-              </Link>
-            </div>
-          </>
-        )}
-
+        </div>
       </div>
+
+      {/* Checkout Footer Links */}
+      <footer className="pt-8 pb-4 text-center text-xs text-[#766A63]">
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 font-semibold">
+          <Link href="/" className="hover:text-[#2C211B] transition-colors">Home</Link>
+          <Link href="/legal/privacy" className="hover:text-[#2C211B] transition-colors">Privacy Policy</Link>
+          <Link href="/legal/terms" className="hover:text-[#2C211B] transition-colors">Terms of Service</Link>
+          <Link href="/legal/refund" className="hover:text-[#2C211B] transition-colors">Refund Policy</Link>
+          <a href="mailto:support@puplume.pet" className="hover:text-[#2C211B] transition-colors">Support</a>
+        </div>
+        <p className="mt-2 text-[11px] text-[#A39B96]">
+          &copy; {new Date().getFullYear()} PupLume. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
