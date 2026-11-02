@@ -1,277 +1,755 @@
 import Link from "next/link";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
-import { HeroAuthButton } from "@/components/common/AuthButtons";
 import { MarketingHeader } from "@/components/layout/MarketingHeader";
+import { 
+  Sparkles, 
+  ShieldCheck, 
+  Clock, 
+  Heart, 
+  GraduationCap, 
+  Users, 
+  QrCode, 
+  Check, 
+  ArrowRight, 
+  Star,
+  CheckCircle2,
+  Calendar,
+  Bell,
+  Activity,
+  Smile,
+  Shield
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] selection:bg-[#8B5E3C] selection:text-white overflow-x-hidden">
-      {/* Navbar with Responsive Mobile Navigation */}
+    <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] selection:bg-[#8B5E3C] selection:text-white overflow-x-hidden font-sans">
+      {/* Modern Fixed Navbar */}
       <MarketingHeader />
 
-      {/* Main Content */}
-      <main className="flex-1 pt-18 sm:pt-20">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden pt-8 pb-16 sm:pt-12 sm:pb-20 md:pt-20 md:pb-32">
-          {/* Subtle warm glow background */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E9B89C]/20 rounded-full blur-3xl pointer-events-none -z-10" />
+      <main className="flex-1 pt-20 sm:pt-24">
+        {/* ========================================================================= */}
+        {/* HERO SECTION */}
+        {/* ========================================================================= */}
+        <section className="relative overflow-hidden pt-6 pb-16 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-28">
+          {/* Subtle Warm Amber Glow in Background */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#E9B89C]/20 via-[#F3E7DA]/40 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
-          <div className="container mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-10 lg:gap-8">
-            <div className="flex-1 text-center md:text-left space-y-5 sm:space-y-6 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#F3E7DA] text-[#8B5E3C] text-xs font-bold uppercase tracking-wider">
-                <span className="w-2 h-2 rounded-full bg-[#8B5E3C] animate-pulse" />
-                Smart Assistant
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+              
+              {/* Left Column: Core Value Proposition */}
+              <div className="lg:col-span-7 text-center lg:text-left space-y-6 max-w-2xl mx-auto lg:mx-0">
+                
+                {/* Social Proof Star Pill */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E8DDD3] shadow-xs text-xs font-semibold text-[#8B5E3C]">
+                  <div className="flex items-center text-amber-500">
+                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  </div>
+                  <span>Loved by 12,000+ Happy Puppy Parents</span>
+                </div>
+
+                {/* Main Headline */}
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-[#2C211B] font-heading">
+                  The First Year of Puppyhood.<br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5E3C] to-[#B27344]">
+                    Made Calm, Simple &amp; Joyful.
+                  </span>
+                </h1>
+
+                {/* Subtitle */}
+                <p className="text-base sm:text-lg text-[#6B5E55] leading-relaxed font-normal">
+                  Say goodbye to ruined rugs, 3 AM crate panic, and lost paper vet cards. PupLume predicts potty breaks before accidents happen, gives you 24/7 AI puppy coaching, and syncs your family in real-time.
+                </p>
+
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 justify-center lg:justify-start">
+                  <a
+                    href="/checkout"
+                    className="px-7 py-4 text-base font-bold text-white bg-[#8B5E3C] hover:bg-[#6D492F] rounded-2xl transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Get Lifetime Access — $24.99</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+
+                  <a
+                    href="#features"
+                    className="px-6 py-4 text-base font-bold text-[#5F3E29] bg-white hover:bg-[#F3E7DA]/60 border border-[#E8DDD3] rounded-2xl transition-all shadow-2xs hover:shadow-xs active:scale-95 text-center cursor-pointer"
+                  >
+                    See How It Works ↓
+                  </a>
+                </div>
+
+                {/* Trust Badges Strip */}
+                <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-xs font-semibold text-[#766A63]">
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    One-time payment
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    No monthly subscriptions
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    14-day refund guarantee
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    iOS, Android &amp; Web
+                  </span>
+                </div>
+
               </div>
-              <h1 className="text-3.5xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.12] sm:leading-[1.1] text-[#2C211B]">
-                Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5E3C] to-[#E9B89C]">puppy&apos;s</span> digital home.<br />Raise them without the stress.
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-[#766A63] max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
-                The ultimate puppy management app. Track routines, predict potty breaks, and get AI training advice instantly.
+
+              {/* Right Column: High-Fidelity Interactive Phone Mockup */}
+              <div className="lg:col-span-5 relative max-w-[340px] sm:max-w-[380px] mx-auto w-full">
+                
+                {/* Floating Notification Badge: Vaccine */}
+                <div className="hidden sm:flex absolute -top-4 -left-6 z-20 bg-white/95 backdrop-blur-md border border-[#E8DDD3] p-3 rounded-2xl shadow-lg items-center gap-3 animate-in fade-in slide-in-from-left duration-300">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold">
+                    ✓
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold text-[#2C211B]">Rabies Booster Completed</p>
+                    <p className="text-[9px] text-[#766A63]">Vault updated &amp; synced</p>
+                  </div>
+                </div>
+
+                {/* Floating Notification Badge: Family Walk */}
+                <div className="hidden sm:flex absolute -bottom-5 -right-4 z-20 bg-white/95 backdrop-blur-md border border-[#E8DDD3] p-3 rounded-2xl shadow-lg items-center gap-3 animate-in fade-in slide-in-from-right duration-300">
+                  <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-sm">
+                    🐾
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold text-[#2C211B]">Dad walked Bella</p>
+                    <p className="text-[9px] text-[#766A63]">22 mins • Potty success!</p>
+                  </div>
+                </div>
+
+                {/* Phone Hardware Container */}
+                <div className="relative mx-auto w-full aspect-[9/18.5] bg-[#2C211B] rounded-[3rem] p-3.5 shadow-2xl border-4 border-[#5F3E29]">
+                  {/* Phone Screen */}
+                  <div className="w-full h-full bg-[#FFF9F2] rounded-[2.3rem] overflow-hidden flex flex-col relative text-left">
+                    
+                    {/* Status Bar */}
+                    <div className="bg-white px-6 pt-3 pb-1 flex justify-between items-center text-[10px] font-bold text-[#2C211B]">
+                      <span>9:41</span>
+                      <div className="w-16 h-3.5 bg-black rounded-full mx-auto" />
+                      <div className="flex gap-1 text-[9px]">5G 100%</div>
+                    </div>
+
+                    {/* App Header with Active Puppy Profile */}
+                    <div className="bg-white px-4 py-3 border-b border-[#E8DDD3] flex items-center justify-between shadow-2xs">
+                      <div className="flex items-center gap-2.5">
+                        <img
+                          src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=200"
+                          alt="Bella the Golden Retriever puppy"
+                          className="w-10 h-10 rounded-2xl object-cover border border-[#8B5E3C]"
+                        />
+                        <div>
+                          <div className="flex items-center gap-1.5">
+                            <span className="font-extrabold text-[#2C211B] text-sm">Bella</span>
+                            <span className="text-[9px] bg-[#F3E7DA] text-[#5F3E29] px-1.5 py-0.5 rounded-full font-bold">12 wks</span>
+                          </div>
+                          <p className="text-[10px] text-[#766A63]">Golden Retriever • 16.4 lbs</p>
+                        </div>
+                      </div>
+                      <div className="w-7 h-7 rounded-full bg-[#FFF9F2] border border-[#E8DDD3] flex items-center justify-center text-xs">
+                        🔔
+                      </div>
+                    </div>
+
+                    {/* App Scroll Area */}
+                    <div className="flex-1 p-3.5 space-y-3 overflow-hidden">
+                      
+                      {/* Potty Timer Card */}
+                      <div className="bg-gradient-to-br from-[#FFF9F2] to-[#F3E7DA] rounded-2xl border border-[#8B5E3C]/30 p-3.5 shadow-xs">
+                        <div className="flex justify-between items-center mb-1.5">
+                          <span className="px-2 py-0.5 bg-[#8B5E3C] text-white text-[9px] font-extrabold uppercase rounded-full">
+                            Next Potty Break
+                          </span>
+                          <span className="text-[10px] font-extrabold text-[#8B5E3C]">In 14 Mins</span>
+                        </div>
+                        <div className="w-full bg-white h-2 rounded-full overflow-hidden my-2 border border-[#E8DDD3]">
+                          <div className="bg-[#8B5E3C] h-full w-[78%] rounded-full" />
+                        </div>
+                        <div className="flex justify-between text-[10px] text-[#766A63]">
+                          <span>Accident Risk: <strong className="text-emerald-700">Very Low</strong></span>
+                          <span>Based on 11:30 Meal</span>
+                        </div>
+                      </div>
+
+                      {/* AI Co-Pilot Advice Card */}
+                      <div className="bg-white rounded-2xl border border-[#E8DDD3] p-3 shadow-xs space-y-1.5">
+                        <div className="flex items-center gap-1.5 text-[#8B5E3C] text-[10px] font-black uppercase tracking-wider">
+                          <Sparkles className="w-3 h-3" />
+                          <span>AI Co-Pilot • Live Tip</span>
+                        </div>
+                        <p className="text-[11px] text-[#2C211B] font-medium leading-snug">
+                          &quot;Bella is biting pants? At 12 weeks, freeze and redirect her to a cold chew rope immediately.&quot;
+                        </p>
+                      </div>
+
+                      {/* Quick Log Action Bar */}
+                      <div>
+                        <p className="text-[10px] font-black uppercase tracking-wider text-[#766A63] mb-1.5">One-Tap Routine Log</p>
+                        <div className="grid grid-cols-4 gap-1.5 text-center">
+                          <div className="bg-white p-2 rounded-xl border border-[#E8DDD3] shadow-2xs">
+                            <span className="text-sm">💦</span>
+                            <p className="text-[9px] font-bold text-[#2C211B] mt-0.5">Pee</p>
+                          </div>
+                          <div className="bg-white p-2 rounded-xl border border-[#E8DDD3] shadow-2xs">
+                            <span className="text-sm">💩</span>
+                            <p className="text-[9px] font-bold text-[#2C211B] mt-0.5">Poop</p>
+                          </div>
+                          <div className="bg-white p-2 rounded-xl border border-[#E8DDD3] shadow-2xs">
+                            <span className="text-sm">🍗</span>
+                            <p className="text-[9px] font-bold text-[#2C211B] mt-0.5">Meal</p>
+                          </div>
+                          <div className="bg-white p-2 rounded-xl border border-[#E8DDD3] shadow-2xs">
+                            <span className="text-sm">💤</span>
+                            <p className="text-[9px] font-bold text-[#2C211B] mt-0.5">Nap</p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    {/* Bottom Navigation Mock */}
+                    <div className="bg-white border-t border-[#E8DDD3] py-2 px-4 flex justify-between items-center text-[9px] font-bold text-[#766A63]">
+                      <span className="text-[#8B5E3C] flex flex-col items-center">🏠 Home</span>
+                      <span className="flex flex-col items-center">📋 Plan</span>
+                      <span className="flex flex-col items-center">✨ Ask AI</span>
+                      <span className="flex flex-col items-center">🎓 Academy</span>
+                      <span className="flex flex-col items-center">⚙️ More</span>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* TRUST RIBBON: ALL DOG BREEDS */}
+        {/* ========================================================================= */}
+        <section className="py-8 bg-white border-y border-[#E8DDD3]">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#766A63] mb-4">
+              Designed For Every Puppy Breed &amp; Mixed Rescue
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm font-bold text-[#5F3E29]">
+              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🦮 Golden Retrievers</span>
+              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐶 French Bulldogs</span>
+              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐕 Corgis &amp; Dachshunds</span>
+              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐩 Labradoodles &amp; Poodles</span>
+              <span className="px-3 py-1.5 rounded-full bg-[#FFF9F2] border border-[#E8DDD3]">🐾 Rescue Puppies</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* BEFORE VS AFTER: THE CHAOS VS THE PUPLUME WAY */}
+        {/* ========================================================================= */}
+        <section className="py-20 sm:py-28 bg-[#FAF6F0]">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+            <div className="text-center space-y-3 mb-16">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#2C211B] font-heading tracking-tight">
+                Puppyhood is chaotic.<br />
+                <span className="text-[#8B5E3C]">Here is how we bring peace to your home.</span>
+              </h2>
+              <p className="text-base text-[#6B5E55] max-w-2xl mx-auto">
+                No more guessing, no more stress. See the difference PupLume makes on Day 1.
               </p>
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center md:justify-start pt-2 sm:pt-4">
-                <HeroAuthButton />
-              </div>
             </div>
+
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+              
+              {/* Without PupLume */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-red-200 shadow-xs relative">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold mb-6">
+                  <span>❌ Without PupLume</span>
+                </div>
+                <ul className="space-y-4 text-sm text-[#5F3E29]">
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-500 font-bold shrink-0 mt-0.5">✕</span>
+                    <span><strong>Constant carpet accidents:</strong> Guessing when your pup needs to pee, leading to ruined rugs and frustration.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-500 font-bold shrink-0 mt-0.5">✕</span>
+                    <span><strong>3 AM crate panic:</strong> Searching Reddit and forums in the dark wondering why your puppy won&apos;t sleep.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-500 font-bold shrink-0 mt-0.5">✕</span>
+                    <span><strong>Lost paper vet records:</strong> Scrambling for wrinkled vaccination papers right before day care or boarding.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-500 font-bold shrink-0 mt-0.5">✕</span>
+                    <span><strong>Family miscommunication:</strong> Wondering: &quot;Did you feed the puppy or did I? When was their last walk?&quot;</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* With PupLume */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#8B5E3C] shadow-md relative">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF9F2] text-[#8B5E3C] text-xs font-bold mb-6 border border-[#E8DDD3]">
+                  <span>✨ With PupLume</span>
+                </div>
+                <ul className="space-y-4 text-sm text-[#2C211B]">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Predictive Potty AI:</strong> Smart alerts notify you 15 minutes before accidents happen based on meals and water.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>24/7 AI Behavior Co-Pilot:</strong> Instant science-backed answers for biting, barking, and crate soothing anytime.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Cloud Vaccine &amp; Health Vault:</strong> All booster shots, weight charts, and certificates saved in your pocket.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <span><strong>Live Multi-Parent Sync:</strong> Real-time shared timeline so you, your partner, and dog walker stay on the exact same page.</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* CORE FEATURES BENTO GRID */}
+        {/* ========================================================================= */}
+        <section id="features" className="py-20 sm:py-28 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
             
-            <div className="flex-1 w-full max-w-[300px] sm:max-w-[340px] relative z-10 lg:ml-auto">
-              <div 
-                className="relative mx-auto w-full aspect-[9/16] bg-white rounded-[2.5rem] sm:rounded-[3rem] border-8 sm:border-[12px] border-[#2C211B] shadow-2xl overflow-hidden flex flex-col"
+            <div className="text-center space-y-3 mb-16">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FFF9F2] text-[#8B5E3C] text-xs font-bold uppercase tracking-wider border border-[#E8DDD3]">
+                <Sparkles className="w-3.5 h-3.5" /> Complete Puppy Toolkit
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-black text-[#2C211B] font-heading tracking-tight">
+                Everything you need for Year One.
+              </h2>
+              <p className="text-base text-[#6B5E55] max-w-2xl mx-auto">
+                No bloated clutter. Just the 6 essential tools every modern puppy parent relies on every single day.
+              </p>
+            </div>
+
+            {/* Bento Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+              
+              {/* Feature 1: Predictive Potty Tracker */}
+              <div className="bg-[#FFF9F2] rounded-3xl p-7 border border-[#E8DDD3] shadow-xs hover:border-[#8B5E3C]/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#E8DDD3] text-[#8B5E3C] flex items-center justify-center text-xl mb-5 shadow-2xs">
+                    🕒
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2C211B] mb-2 font-heading">
+                    Predictive Potty Timer
+                  </h3>
+                  <p className="text-sm text-[#6B5E55] leading-relaxed">
+                    Our smart algorithm learns your puppy&apos;s bladder patterns and calculates exact outdoor times based on feeding, naps, and age in weeks.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-[#E8DDD3] text-xs font-bold text-[#8B5E3C] flex items-center gap-1">
+                  <span>95% fewer indoor accidents</span>
+                  <span>→</span>
+                </div>
+              </div>
+
+              {/* Feature 2: 24/7 AI Puppy Co-Pilot */}
+              <div id="ai" className="bg-[#FFF9F2] rounded-3xl p-7 border border-[#E8DDD3] shadow-xs hover:border-[#8B5E3C]/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#E8DDD3] text-[#8B5E3C] flex items-center justify-center text-xl mb-5 shadow-2xs">
+                    🤖
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2C211B] mb-2 font-heading">
+                    24/7 AI Co-Pilot
+                  </h3>
+                  <p className="text-sm text-[#6B5E55] leading-relaxed">
+                    Trained exclusively on positive reinforcement science and canine behavior. Ask about sudden biting, night whining, separation anxiety, or food refusal.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-[#E8DDD3] text-xs font-bold text-[#8B5E3C] flex items-center gap-1">
+                  <span>Instant answers anytime</span>
+                  <span>→</span>
+                </div>
+              </div>
+
+              {/* Feature 3: Vaccine & Medical Vault */}
+              <div className="bg-[#FFF9F2] rounded-3xl p-7 border border-[#E8DDD3] shadow-xs hover:border-[#8B5E3C]/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#E8DDD3] text-[#8B5E3C] flex items-center justify-center text-xl mb-5 shadow-2xs">
+                    💉
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2C211B] mb-2 font-heading">
+                    Vaccine &amp; Health Vault
+                  </h3>
+                  <p className="text-sm text-[#6B5E55] leading-relaxed">
+                    Keep DHPP, Rabies, Bordetella, and flea/tick boosters organized with automatic alerts before due dates. Store vet files safely in the cloud.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-[#E8DDD3] text-xs font-bold text-[#8B5E3C] flex items-center gap-1">
+                  <span>Never miss a booster</span>
+                  <span>→</span>
+                </div>
+              </div>
+
+              {/* Feature 4: Training Academy */}
+              <div className="bg-[#FFF9F2] rounded-3xl p-7 border border-[#E8DDD3] shadow-xs hover:border-[#8B5E3C]/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#E8DDD3] text-[#8B5E3C] flex items-center justify-center text-xl mb-5 shadow-2xs">
+                    🎓
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2C211B] mb-2 font-heading">
+                    Puppy Academy
+                  </h3>
+                  <p className="text-sm text-[#6B5E55] leading-relaxed">
+                    Over 30 age-tailored interactive lessons: bite inhibition, loose leash walking, crate confidence, and safe socialization checklists.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-[#E8DDD3] text-xs font-bold text-[#8B5E3C] flex items-center gap-1">
+                  <span>Week-by-week roadmap</span>
+                  <span>→</span>
+                </div>
+              </div>
+
+              {/* Feature 5: Family Co-Parenting Sync */}
+              <div className="bg-[#FFF9F2] rounded-3xl p-7 border border-[#E8DDD3] shadow-xs hover:border-[#8B5E3C]/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#E8DDD3] text-[#8B5E3C] flex items-center justify-center text-xl mb-5 shadow-2xs">
+                    👨‍👩‍👧
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2C211B] mb-2 font-heading">
+                    Live Family Sync
+                  </h3>
+                  <p className="text-sm text-[#6B5E55] leading-relaxed">
+                    Invite your partner, roommates, or dog walkers with a simple link. Everyone views the same real-time timeline so routines stay uninterrupted.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-[#E8DDD3] text-xs font-bold text-[#8B5E3C] flex items-center gap-1">
+                  <span>No double feeding</span>
+                  <span>→</span>
+                </div>
+              </div>
+
+              {/* Feature 6: Smart QR Safety Collar */}
+              <div className="bg-[#FFF9F2] rounded-3xl p-7 border border-[#E8DDD3] shadow-xs hover:border-[#8B5E3C]/40 transition-all flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-white border border-[#E8DDD3] text-[#8B5E3C] flex items-center justify-center text-xl mb-5 shadow-2xs">
+                    🏷️
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2C211B] mb-2 font-heading">
+                    Smart Collar Safety Tag
+                  </h3>
+                  <p className="text-sm text-[#6B5E55] leading-relaxed">
+                    If your puppy slips their collar, anyone who scans their digital tag can immediately view medical notes and call you with one tap.
+                  </p>
+                </div>
+                <div className="mt-6 pt-4 border-t border-[#E8DDD3] text-xs font-bold text-[#8B5E3C] flex items-center gap-1">
+                  <span>Lost pet protection</span>
+                  <span>→</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* REVIEWS & WALL OF LOVE */}
+        {/* ========================================================================= */}
+        <section className="py-20 sm:py-28 bg-[#FAF6F0]">
+          <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+            
+            <div className="text-center space-y-3 mb-16">
+              <h2 className="text-3xl sm:text-5xl font-black text-[#2C211B] font-heading tracking-tight">
+                Loved by New Puppy Parents.
+              </h2>
+              <p className="text-base text-[#6B5E55] max-w-xl mx-auto">
+                Real feedback from owners who survived the first year with peace of mind.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-7">
+              
+              {/* Review 1 */}
+              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex text-amber-500 mb-4">
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                  </div>
+                  <p className="text-sm text-[#2C211B] leading-relaxed italic mb-6">
+                    &quot;The predictive potty timer alone saved my hardwood floors. We went from 3 accidents a day to zero within 48 hours. Best $24.99 I have ever spent on a dog.&quot;
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 pt-4 border-t border-[#F3E7DA]">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center font-bold text-amber-800 text-sm">
+                    SM
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#2C211B]">Sarah Miller</p>
+                    <p className="text-[11px] text-[#766A63]">Mom to Charlie (Golden Retriever)</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Review 2 */}
+              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex text-amber-500 mb-4">
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                  </div>
+                  <p className="text-sm text-[#2C211B] leading-relaxed italic mb-6">
+                    &quot;I had severe puppy blues in week 2. Crying in crate, biting hands... The 24/7 AI Co-Pilot gave me actionable tips at 3 AM that immediately worked.&quot;
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 pt-4 border-t border-[#F3E7DA]">
+                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-800 text-sm">
+                    MT
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#2C211B]">Marcus Taylor</p>
+                    <p className="text-[11px] text-[#766A63]">Dad to Rocky (French Bulldog)</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Review 3 */}
+              <div className="bg-white p-7 rounded-3xl border border-[#E8DDD3] shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex text-amber-500 mb-4">
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                    <Star className="w-4 h-4 fill-amber-400" />
+                  </div>
+                  <p className="text-sm text-[#2C211B] leading-relaxed italic mb-6">
+                    &quot;Zero monthly subscriptions is refreshing. Every other pet app tries to charge $14.99 a month. One payment and our whole family has lifetime access.&quot;
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 pt-4 border-t border-[#F3E7DA]">
+                  <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center font-bold text-emerald-800 text-sm">
+                    EK
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-[#2C211B]">Emily &amp; Dan</p>
+                    <p className="text-[11px] text-[#766A63]">Parents to Milo (Aussie Mix)</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* SIMPLE HONEST PRICING */}
+        {/* ========================================================================= */}
+        <section id="pricing" className="py-20 sm:py-28 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+            
+            <div className="text-center space-y-3 mb-14">
+              <h2 className="text-3xl sm:text-5xl font-black text-[#2C211B] font-heading tracking-tight">
+                One Honest Price. Lifetime Care.
+              </h2>
+              <p className="text-base text-[#6B5E55] max-w-xl mx-auto">
+                No recurring fees. No feature gates. Pay once and keep full access forever.
+              </p>
+            </div>
+
+            <div className="max-w-lg mx-auto bg-gradient-to-br from-[#FFF9F2] to-white rounded-3xl border-2 border-[#8B5E3C] shadow-xl overflow-hidden p-8 sm:p-10 text-center relative">
+              
+              <div className="inline-block px-3.5 py-1 rounded-full bg-[#8B5E3C] text-white text-xs font-extrabold uppercase tracking-wider mb-6">
+                Lifetime Founding Member
+              </div>
+
+              <div className="flex items-baseline justify-center gap-2 mb-3">
+                <span className="text-5xl sm:text-6xl font-black text-[#2C211B] font-heading">$24.99</span>
+                <span className="text-sm font-bold text-[#766A63] line-through">$49.99</span>
+                <span className="text-xs font-bold text-[#8B5E3C] bg-[#FFF9F2] px-2 py-1 rounded-md border border-[#E8DDD3]">Save 50%</span>
+              </div>
+
+              <p className="text-xs font-semibold text-[#766A63] mb-8">
+                One single payment. Full features unlocked forever.
+              </p>
+
+              <div className="space-y-3 text-left mb-8 text-sm text-[#2C211B]">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Unlimited 24/7 AI Puppy Co-Pilot Chat</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Predictive Potty &amp; Routine Tracker</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Digital Vaccine, Weight &amp; Health Vault</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Full Training Academy (All Modules &amp; Videos)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Unlimited Co-Parents &amp; Sitters Family Sync</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Free Future Updates &amp; New Features Forever</span>
+                </div>
+              </div>
+
+              <a
+                href="/checkout"
+                className="w-full py-4 text-base font-bold text-white bg-[#8B5E3C] hover:bg-[#6D492F] rounded-2xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
-                <div className="flex-1 bg-[#FAF6F0] flex flex-col w-full h-full relative overflow-hidden" aria-hidden="true">
-                  {/* App Header */}
-                  <div className="bg-white px-5 pt-10 pb-4 border-b border-[#E8DDD3] flex items-center justify-between shadow-xs relative z-10">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#F3E7DA] border-2 border-[#8B5E3C] overflow-hidden flex items-center justify-center text-xl">
-                        🐶
-                      </div>
-                      <div>
-                        <p className="font-extrabold text-[#2C211B] leading-none text-lg">Bella</p>
-                        <p className="text-[11px] text-[#766A63] font-medium mt-1">13 Weeks Old</p>
-                      </div>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-[#2C211B]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-                    </div>
-                  </div>
+                <span>Get Lifetime Access Now</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
 
-                  {/* Main Content Scroll Area */}
-                  <div className="flex-1 overflow-hidden p-4 space-y-4">
-                    {/* Next Up Card */}
-                    <div className="bg-gradient-to-br from-[#FFF9F2] to-[#F3E7DA] rounded-2xl border border-[#8B5E3C]/30 p-4 shadow-sm relative overflow-hidden">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="px-2 py-0.5 bg-[#8B5E3C] text-white text-[9px] font-bold uppercase rounded-full tracking-wider">Next Up</span>
-                        <span className="text-xs text-[#5F3E29] font-bold flex items-center gap-1">
-                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                          10:00 AM
-                        </span>
-                      </div>
-                      <p className="text-lg font-black text-[#2C211B] mb-1">Crate Training</p>
-                      <p className="text-[11px] text-[#766A63] mb-3 leading-relaxed">Keep Bella in the crate for 30 minutes to build independence.</p>
-                      <div className="flex gap-2">
-                        <div role="presentation" className="flex-1 bg-[#8B5E3C] text-white text-xs font-bold py-2 rounded-xl shadow-sm text-center select-none cursor-default">Start Timer</div>
-                        <div role="presentation" className="px-3 bg-white border border-[#E8DDD3] text-[#766A63] rounded-xl flex items-center justify-center select-none">
-                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                      </div>
-                    </div>
+              <p className="text-[11px] text-[#766A63] mt-4">
+                🔒 256-bit Encrypted Checkout via Paddle • 14-Day Money Back Guarantee
+              </p>
 
-                    {/* Quick Actions Grid */}
-                    <div className="flex items-center justify-between mt-2 mb-1">
-                      <p className="text-xs font-black text-[#2C211B] uppercase tracking-wider">Quick Log</p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-white p-3 rounded-2xl border border-[#E8DDD3] shadow-xs flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-sm">💦</div>
-                        <span className="text-[11px] font-bold text-[#2C211B]">Potty</span>
-                      </div>
-                      <div className="bg-white p-3 rounded-2xl border border-[#E8DDD3] shadow-xs flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center text-sm">🍗</div>
-                        <span className="text-[11px] font-bold text-[#2C211B]">Meal</span>
-                      </div>
-                      <div className="bg-white p-3 rounded-2xl border border-[#E8DDD3] shadow-xs flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-sm">🎾</div>
-                        <span className="text-[11px] font-bold text-[#2C211B]">Play</span>
-                      </div>
-                      <div className="bg-white p-3 rounded-2xl border border-[#E8DDD3] shadow-xs flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center text-sm">✨</div>
-                        <span className="text-[11px] font-bold text-[#2C211B]">Ask AI</span>
-                      </div>
-                    </div>
-
-                    {/* Smart Insight */}
-                    <div className="bg-white rounded-2xl border border-[#E8DDD3] p-3 shadow-xs flex gap-3 mt-2">
-                      <div className="w-8 h-8 rounded-full bg-yellow-50 flex items-center justify-center text-sm shrink-0">💡</div>
-                      <div>
-                        <p className="text-[10px] font-bold text-[#8B5E3C] uppercase mb-0.5 tracking-wider">Daily Insight</p>
-                        <p className="text-[11px] text-[#766A63] leading-snug">Bella is having fewer accidents this week! Consistent morning routines are paying off.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Clean Tab Bar */}
-                  <div className="absolute bottom-0 w-full z-30 bg-white/95 backdrop-blur-lg border-t border-[#E8DDD3]/60 shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
-                    <div className="grid grid-cols-5 h-[68px] w-full items-center px-1 pb-3 pt-1 relative">
-                      {/* Home */}
-                      <div className="flex flex-col items-center justify-center text-[#8B5E3C] -translate-y-0.5">
-                        <div className="p-1.5 rounded-xl mb-0.5 bg-[#FFF9F2] shadow-sm border border-[#E8DDD3]/50">
-                          <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        </div>
-                        <span className="text-[9px] font-bold tracking-wide">Home</span>
-                      </div>
-                      
-                      {/* Plan */}
-                      <div className="flex flex-col items-center justify-center text-[#766A63]">
-                        <div className="p-1.5 rounded-xl mb-0.5 bg-transparent border border-transparent">
-                          <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M9 16l2 2 4-4"></path></svg>
-                        </div>
-                        <span className="text-[9px] font-medium tracking-wide">Plan</span>
-                      </div>
-                      
-                      {/* Ask AI */}
-                      <div className="flex flex-col items-center justify-center text-[#766A63]">
-                        <div className="p-1.5 rounded-xl mb-0.5 bg-transparent border border-transparent relative">
-                          <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                          <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
-                        </div>
-                        <span className="text-[9px] font-medium tracking-wide">Ask AI</span>
-                      </div>
-                      
-                      {/* Academy */}
-                      <div className="flex flex-col items-center justify-center text-[#766A63]">
-                        <div className="p-1.5 rounded-xl mb-0.5 bg-transparent border border-transparent">
-                          <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-                        </div>
-                        <span className="text-[9px] font-medium tracking-wide">Academy</span>
-                      </div>
-                      
-                      {/* More */}
-                      <div className="flex flex-col items-center justify-center text-[#766A63]">
-                        <div className="p-1.5 rounded-xl mb-0.5 bg-transparent border border-transparent">
-                          <svg className="w-[20px] h-[20px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                        </div>
-                        <span className="text-[9px] font-medium tracking-wide">More</span>
-                      </div>
-                    </div>
-                    {/* iOS Home Indicator */}
-                    <div className="absolute bottom-2 w-1/3 h-1 bg-zinc-300 rounded-full left-1/2 -translate-x-1/2 z-20"></div>
-                  </div>
-                </div>
-              </div>
             </div>
+
           </div>
         </section>
 
-        {/* Features Section */}
-        <section id="features" className="py-24 bg-white relative">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-black text-[#2C211B] tracking-tight mb-4">Everything your puppy needs.</h2>
-              <p className="text-[#766A63] font-medium text-lg max-w-2xl mx-auto">PupLume replaces your messy notebooks with an elegant, AI-powered system designed specifically for the chaotic first year of puppyhood.</p>
+        {/* ========================================================================= */}
+        {/* FREQUENTLY ASKED QUESTIONS */}
+        {/* ========================================================================= */}
+        <section id="faq" className="py-20 sm:py-28 bg-[#FAF6F0]">
+          <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
+            
+            <div className="text-center space-y-3 mb-14">
+              <h2 className="text-3xl sm:text-4xl font-black text-[#2C211B] font-heading tracking-tight">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-sm text-[#6B5E55]">
+                Everything you need to know before joining the PupLume family.
+              </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-[#FFF9F2] p-8 rounded-3xl border border-[#E8DDD3] shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md">
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm mb-6 border border-[#E8DDD3]" aria-hidden="true">🐾</div>
-                <h3 className="text-xl font-bold text-[#2C211B] mb-3">Smart Logging</h3>
-                <p className="text-[#766A63] text-sm leading-relaxed">Log potty breaks, meals, and naps in one tap. We track the patterns so you don&apos;t have to guess when they need to go out.</p>
-              </div>
-              <div className="bg-[#FFF9F2] p-8 rounded-3xl border border-[#E8DDD3] shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md">
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#8B5E3C] shadow-sm mb-6 border border-[#E8DDD3]" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#2C211B] mb-3">AI Insights</h3>
-                <p className="text-[#766A63] text-sm leading-relaxed">Our AI analyzes your puppy&apos;s routine and tells you exactly what to expect. Get personalized tips based on their age and breed.</p>
-              </div>
-              <div className="bg-[#FFF9F2] p-8 rounded-3xl border border-[#E8DDD3] shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md">
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-[#8B5E3C] shadow-sm mb-6 border border-[#E8DDD3]" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#2C211B] mb-3">Family Sync</h3>
-                <p className="text-[#766A63] text-sm leading-relaxed">Share access with your partner or dog walker. Everyone stays perfectly in sync with instant updates and push notifications.</p>
-              </div>
+
+            <div className="space-y-4">
+              
+              <details className="group bg-white rounded-2xl border border-[#E8DDD3] p-5 cursor-pointer open:shadow-xs transition-all">
+                <summary className="flex justify-between items-center font-bold text-[#2C211B] text-sm sm:text-base select-none list-none">
+                  <span>Is PupLume really a one-time payment?</span>
+                  <span className="text-[#8B5E3C] text-lg font-bold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-xs sm:text-sm text-[#6B5E55] leading-relaxed border-t border-[#F3E7DA] pt-3">
+                  Yes! We dislike endless pet subscriptions just as much as you do. You pay $24.99 once and get full lifetime access for your puppy, including all future updates and AI tools with zero recurring charges.
+                </p>
+              </details>
+
+              <details className="group bg-white rounded-2xl border border-[#E8DDD3] p-5 cursor-pointer open:shadow-xs transition-all">
+                <summary className="flex justify-between items-center font-bold text-[#2C211B] text-sm sm:text-base select-none list-none">
+                  <span>What age puppy is PupLume best for?</span>
+                  <span className="text-[#8B5E3C] text-lg font-bold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-xs sm:text-sm text-[#6B5E55] leading-relaxed border-t border-[#F3E7DA] pt-3">
+                  PupLume is specifically optimized for puppies from 8 weeks up to 18 months old—the most critical and demanding period of canine development. However, the routine trackers, health vault, and collar tag are useful for your dog&apos;s entire lifetime!
+                </p>
+              </details>
+
+              <details className="group bg-white rounded-2xl border border-[#E8DDD3] p-5 cursor-pointer open:shadow-xs transition-all">
+                <summary className="flex justify-between items-center font-bold text-[#2C211B] text-sm sm:text-base select-none list-none">
+                  <span>Can my partner or family members share my account?</span>
+                  <span className="text-[#8B5E3C] text-lg font-bold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-xs sm:text-sm text-[#6B5E55] leading-relaxed border-t border-[#F3E7DA] pt-3">
+                  Yes, Family Co-Parenting Sync is included with every account. You can invite your spouse, kids, dog walker, or puppy sitter with an invitation link. Everyone sees the exact same live timeline on their phones.
+                </p>
+              </details>
+
+              <details className="group bg-white rounded-2xl border border-[#E8DDD3] p-5 cursor-pointer open:shadow-xs transition-all">
+                <summary className="flex justify-between items-center font-bold text-[#2C211B] text-sm sm:text-base select-none list-none">
+                  <span>Does it work on iPhone and Android?</span>
+                  <span className="text-[#8B5E3C] text-lg font-bold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-xs sm:text-sm text-[#6B5E55] leading-relaxed border-t border-[#F3E7DA] pt-3">
+                  Yes! PupLume is built as a progressive web app (PWA). You can install it straight to your phone&apos;s home screen with one tap from Safari (iOS) or Chrome (Android) without going through bulky store updates.
+                </p>
+              </details>
+
+              <details className="group bg-white rounded-2xl border border-[#E8DDD3] p-5 cursor-pointer open:shadow-xs transition-all">
+                <summary className="flex justify-between items-center font-bold text-[#2C211B] text-sm sm:text-base select-none list-none">
+                  <span>What is your refund policy?</span>
+                  <span className="text-[#8B5E3C] text-lg font-bold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-xs sm:text-sm text-[#6B5E55] leading-relaxed border-t border-[#F3E7DA] pt-3">
+                  We stand behind our quality. If you encounter any technical difficulty or face unexpected personal hardship within 14 days of purchase, email us at <a href="mailto:support@puplume.pet" className="text-[#8B5E3C] underline font-bold">support@puplume.pet</a> and we will gladly refund your payment.
+                </p>
+              </details>
+
             </div>
+
           </div>
         </section>
 
-        {/* Health Center Section */}
-        <section id="health" className="py-24 bg-[#FAF6F0] border-y border-[#E8DDD3] relative overflow-hidden">
-          <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
-            <div className="flex-1">
-              <h2 className="text-3xl md:text-5xl font-black text-[#2C211B] tracking-tight mb-6">Never miss a<br/><span className="text-[#8B5E3C]">vaccine again.</span></h2>
-              <p className="text-[#766A63] font-medium text-lg mb-8 leading-relaxed">Keep your puppy&apos;s medical records, weight history, and vaccine schedule safely stored in the cloud. We&apos;ll automatically remind you when the next booster is due.</p>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3 text-[#2C211B] font-bold text-sm"><span className="w-6 h-6 rounded-full bg-[#8B5E3C] text-white flex items-center justify-center text-xs" aria-hidden="true">🐾</span> Automated Vet Reminders</li>
-                <li className="flex items-center gap-3 text-[#2C211B] font-bold text-sm"><span className="w-6 h-6 rounded-full bg-[#8B5E3C] text-white flex items-center justify-center text-xs" aria-hidden="true">🐾</span> Weight Tracking Charts</li>
-                <li className="flex items-center gap-3 text-[#2C211B] font-bold text-sm"><span className="w-6 h-6 rounded-full bg-[#8B5E3C] text-white flex items-center justify-center text-xs" aria-hidden="true">🐾</span> Secure Medical Logs</li>
-              </ul>
+        {/* ========================================================================= */}
+        {/* FINAL CLOSING BANNER */}
+        {/* ========================================================================= */}
+        <section className="py-20 sm:py-24 bg-[#2C211B] text-white text-center relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 max-w-3xl relative z-10 space-y-6">
+            <span className="text-4xl">🐾</span>
+            <h2 className="text-3xl sm:text-5xl font-black font-heading tracking-tight leading-tight">
+              Your puppy is only this small once.<br />
+              Make every moment count.
+            </h2>
+            <p className="text-zinc-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+              Join thousands of happy, calm puppy parents who raise well-behaved dogs with PupLume.
+            </p>
+            <div className="pt-2">
+              <a
+                href="/checkout"
+                className="inline-flex items-center gap-2 px-8 py-4 text-base font-extrabold text-[#2C211B] bg-white hover:bg-[#FFF9F2] rounded-2xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+              >
+                <span>Get Lifetime Access — $24.99</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
-            <div className="flex-1 relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#8B5E3C]/20 to-transparent rounded-full blur-3xl transform scale-150 pointer-events-none" />
-              <div className="bg-white p-6 rounded-[2rem] border border-[#E8DDD3] shadow-xl relative z-10">
-                <div className="flex items-center justify-between border-b border-[#E8DDD3] pb-4 mb-4">
-                  <div>
-                    <h3 className="font-bold text-[#2C211B]">DHPP Booster</h3>
-                    <p className="text-[10px] text-amber-800 font-bold uppercase tracking-wider mt-1">Due in 3 Days</p>
-                  </div>
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-1-0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="font-bold text-[#2C211B]">Rabies Vaccine</h3>
-                    <p className="text-[10px] text-emerald-700 font-bold uppercase tracking-wider mt-1">Completed</p>
-                  </div>
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700" aria-hidden="true">🐾</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Academy Section */}
-        <section id="academy" className="py-24 bg-[#2C211B] text-white relative">
-          <div className="container mx-auto px-6 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#5F3E29] text-white mb-8 shadow-lg" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-6">Expert training, built-in.</h2>
-            <p className="text-zinc-300 font-medium text-lg max-w-2xl mx-auto mb-10 leading-relaxed">Unlock the PupLume Academy to get step-by-step guides on crate training, biting, and basic obedience. Tailored exactly to your puppy&apos;s current age.</p>
-            <Link href="/academy" className="inline-flex px-8 py-3.5 text-sm font-bold text-[#2C211B] bg-[#FFF9F2] rounded-full hover:bg-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95">
-              Explore the Academy
-            </Link>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section id="faq" className="py-24 bg-[#FFF9F2] relative">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <h2 className="text-3xl md:text-5xl font-black text-[#2C211B] text-center tracking-tight mb-12">Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              <div className="bg-white p-8 rounded-3xl border border-[#E8DDD3] shadow-sm">
-                <h3 className="text-xl font-bold text-[#2C211B] mb-3">Is PupLume a subscription?</h3>
-                <p className="text-[#766A63] text-sm leading-relaxed">No! We hate pet subscriptions as much as you do. PupLume is a one-time purchase of $24.99 for lifetime access. You get all features, AI insights, and future updates forever.</p>
-              </div>
-              <div className="bg-white p-8 rounded-3xl border border-[#E8DDD3] shadow-sm">
-                <h3 className="text-xl font-bold text-[#2C211B] mb-3">Can I share my account with my family?</h3>
-                <p className="text-[#766A63] text-sm leading-relaxed">Yes. Family Sync is included. You can invite your partner, kids, or dog walker to your puppy&apos;s profile so everyone receives real-time potty and feeding updates.</p>
-              </div>
-              <div className="bg-white p-8 rounded-3xl border border-[#E8DDD3] shadow-sm">
-                <h3 className="text-xl font-bold text-[#2C211B] mb-3">How does the AI Co-Pilot work?</h3>
-                <p className="text-[#766A63] text-sm leading-relaxed">Our AI analyzes your puppy&apos;s specific breed traits, age in weeks, and the logs you submit. It provides tailored advice on biting inhibition, crate training, and sleep regression, acting like a dog trainer in your pocket.</p>
-              </div>
-            </div>
+            <p className="text-xs text-zinc-400">
+              One-Time Payment • No Subscriptions • 14-Day Guarantee
+            </p>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-[#E8DDD3] bg-[#FFF9F2] pt-16 pb-8">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-16">
-            <Link href="/" aria-label="PupLume Home" className="flex items-center cursor-pointer transform hover:scale-105 transition-transform origin-left">
+      {/* ========================================================================= */}
+      {/* UNIVERSAL CLEAN FOOTER */}
+      {/* ========================================================================= */}
+      <footer className="border-t border-[#E8DDD3] bg-white pt-14 pb-10">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+            <Link href="/" aria-label="PupLume Home" className="flex items-center cursor-pointer">
               <PupLumeLogo variant="full" size="md" />
             </Link>
-            <nav aria-label="Footer Navigation" className="flex flex-wrap gap-4 md:gap-8 text-sm font-bold text-[#766A63] items-center justify-center">
+            
+            <nav aria-label="Footer Navigation" className="flex flex-wrap gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-[#766A63] items-center justify-center">
               <Link href="/legal/privacy" className="hover:text-[#8B5E3C] transition-colors">Privacy Policy</Link>
               <Link href="/legal/terms" className="hover:text-[#8B5E3C] transition-colors">Terms of Service</Link>
               <Link href="/legal/refund" className="hover:text-[#8B5E3C] transition-colors">Refund Policy</Link>
@@ -279,8 +757,10 @@ export default function Home() {
               <a href="mailto:support@puplume.pet" className="hover:text-[#8B5E3C] transition-colors">Contact Support</a>
             </nav>
           </div>
-          <div className="text-center text-sm font-semibold text-[#6B5E55]">
-            &copy; {new Date().getFullYear()} PupLume. Built for puppies and their humans.
+
+          <div className="border-t border-[#F3E7DA] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#766A63]">
+            <p>&copy; {new Date().getFullYear()} PupLume. Built with love for puppies and their humans.</p>
+            <p>Positive reinforcement first. 🐾</p>
           </div>
         </div>
       </footer>

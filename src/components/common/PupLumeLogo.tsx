@@ -15,9 +15,9 @@ export const PupLumeLogo: React.FC<PupLumeLogoProps> = ({
 }) => {
   const iconDimensions = {
     sm: { w: 32, h: 32 },
-    md: { w: 40, h: 40 },
-    lg: { w: 52, h: 52 },
-    xl: { w: 68, h: 68 }
+    md: { w: 38, h: 38 },
+    lg: { w: 48, h: 48 },
+    xl: { w: 64, h: 64 }
   }[size];
 
   const textSize = {
@@ -25,13 +25,6 @@ export const PupLumeLogo: React.FC<PupLumeLogoProps> = ({
     md: 'text-xl',
     lg: 'text-2xl',
     xl: 'text-3xl'
-  }[size];
-
-  const subSize = {
-    sm: 'text-[9px] tracking-[0.14em]',
-    md: 'text-[10px] tracking-[0.16em]',
-    lg: 'text-xs tracking-[0.18em]',
-    xl: 'text-sm tracking-[0.2em]'
   }[size];
 
   return (
@@ -112,7 +105,7 @@ export const PupLumeLogo: React.FC<PupLumeLogoProps> = ({
           <div className={`font-black tracking-tight text-[#2C211B] ${textSize}`} style={{ fontFamily: "var(--font-grandstander), cursive" }}>
             Pup<span className="text-[#8B5E3C]">Lume</span>
           </div>
-          <span className={`font-bold uppercase text-[#766A63] ${subSize}`} style={{ fontFamily: "var(--font-grandstander), cursive" }}>
+          <span className="font-semibold uppercase text-[#766A63] text-[10px] tracking-[0.16em] hidden sm:block mt-0.5">
             Your Puppy Digital Home
           </span>
         </div>

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Sparkles, GraduationCap, Heart, Shield, ArrowRight } from "lucide-react";
 import { PupLumeLogo } from "@/components/common/PupLumeLogo";
-import { NavAuthButton } from "@/components/common/AuthButtons";
 import { useAppUrl } from "@/lib/urls";
 
 interface NavLinkItem {
@@ -18,27 +17,33 @@ interface NavLinkItem {
 const navLinks: NavLinkItem[] = [
   {
     name: "Features",
-    href: "/features",
-    icon: <Sparkles className="w-5 h-5 text-[#8B5E3C]" />,
-    tagline: "Smart logging & routine tracking",
+    href: "/#features",
+    icon: <Sparkles className="w-4 h-4 text-[#8B5E3C]" />,
+    tagline: "Predictive potty & daily routines",
+  },
+  {
+    name: "AI Co-Pilot",
+    href: "/#ai",
+    icon: <Sparkles className="w-4 h-4 text-[#8B5E3C]" />,
+    tagline: "24/7 puppy behavior advice",
   },
   {
     name: "Academy",
     href: "/academy",
-    icon: <GraduationCap className="w-5 h-5 text-[#8B5E3C]" />,
+    icon: <GraduationCap className="w-4 h-4 text-[#8B5E3C]" />,
     tagline: "Age-tailored training guides",
   },
   {
-    name: "Health Center",
+    name: "Health Vault",
     href: "/health",
-    icon: <Heart className="w-5 h-5 text-[#8B5E3C]" />,
+    icon: <Heart className="w-4 h-4 text-[#8B5E3C]" />,
     tagline: "Vaccines, weight & vet records",
   },
   {
     name: "Pricing",
     href: "/pricing",
-    icon: <Shield className="w-5 h-5 text-[#8B5E3C]" />,
-    tagline: "Lifetime access, zero subscriptions",
+    icon: <Shield className="w-4 h-4 text-[#8B5E3C]" />,
+    tagline: "One-time $24.99, no subscriptions",
   },
 ];
 
@@ -47,21 +52,17 @@ export function MarketingHeader() {
   const pathname = usePathname();
   const appUrl = useAppUrl();
 
-  // Close mobile drawer when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  // Handle escape key to close menu & lock body scroll when open
   useEffect(() => {
     if (mobileMenuOpen) {
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
 
       const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === "Escape") {
-          setMobileMenuOpen(false);
-        }
+        if (e.key === "Escape") setMobileMenuOpen(false);
       };
 
       window.addEventListener("keydown", handleKeyDown);
@@ -73,29 +74,27 @@ export function MarketingHeader() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-[#FFF9F2]/95 backdrop-blur-lg border-b border-[#E8DDD3] transition-all">
-      <div className="container mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
+    <header className="fixed top-0 z-50 w-full bg-[#FFF9F2]/90 backdrop-blur-md border-b border-[#E8DDD3] transition-all">
+      <div className="container mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
           aria-label="PupLume Home"
-          className="flex items-center cursor-pointer transform hover:scale-105 transition-transform origin-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8B5E3C]"
+          className="flex items-center cursor-pointer transform hover:scale-[1.02] transition-transform origin-left"
         >
           <PupLumeLogo variant="full" size="md" />
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav aria-label="Main Navigation" className="hidden md:flex gap-8 lg:gap-10 text-sm font-bold text-[#766A63]">
+        {/* Desktop Nav */}
+        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-7 lg:gap-9 text-sm font-semibold text-[#766A63]">
           {navLinks.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
-                key={item.href}
+                key={item.name}
                 href={item.href}
-                className={`transition-all duration-200 py-1 border-b-2 ${
-                  isActive
-                    ? "text-[#8B5E3C] border-[#8B5E3C] font-black"
-                    : "border-transparent hover:text-[#8B5E3C] hover:border-[#8B5E3C]/30"
+                className={`transition-colors py-1 hover:text-[#8B5E3C] ${
+                  isActive ? "text-[#8B5E3C] font-bold" : ""
                 }`}
               >
                 {item.name}
@@ -104,25 +103,28 @@ export function MarketingHeader() {
           })}
         </nav>
 
-        {/* Actions & Mobile Menu Toggle */}
-        <div className="flex items-center gap-2 sm:gap-4">
-          <div className="hidden sm:flex items-center">
-            <NavAuthButton />
-          </div>
-
-          {/* Quick App Link for small screens */}
+        {/* Right Actions */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <a
             href={`${appUrl}/?login=true`}
-            className="sm:hidden px-3.5 py-1.5 text-xs font-bold text-white bg-[#8B5E3C] rounded-full hover:bg-[#5F3E29] transition-all shadow-sm active:scale-95"
+            className="hidden sm:inline-flex text-xs font-bold text-[#766A63] hover:text-[#2C211B] px-3.5 py-2 transition-colors"
           >
-            Open App
+            Log In
+          </a>
+
+          <a
+            href="/checkout"
+            className="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-[#8B5E3C] hover:bg-[#6D492F] rounded-2xl transition-all shadow-xs hover:shadow-md active:scale-95 flex items-center gap-1.5"
+          >
+            <span>Get App</span>
+            <span className="hidden sm:inline opacity-80 text-[11px] font-normal">• $24.99</span>
           </a>
 
           {/* Mobile Hamburger Toggle Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl border border-[#E8DDD3] bg-white text-[#2C211B] hover:bg-[#F3E7DA] transition-colors focus-visible:outline-2 focus-visible:outline-[#8B5E3C] cursor-pointer min-w-[40px] min-h-[40px] flex items-center justify-center"
+            className="md:hidden p-2 rounded-xl border border-[#E8DDD3] bg-white text-[#2C211B] hover:bg-[#F3E7DA] transition-colors focus-visible:outline-2 focus-visible:outline-[#8B5E3C] cursor-pointer w-9 h-9 flex items-center justify-center"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
           >
@@ -134,69 +136,58 @@ export function MarketingHeader() {
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden fixed inset-x-0 top-18 sm:top-20 bottom-0 bg-[#2C211B]/40 backdrop-blur-xs z-40 animate-in fade-in duration-200"
+          className="md:hidden fixed inset-x-0 top-16 bottom-0 bg-[#2C211B]/40 backdrop-blur-xs z-40 animate-in fade-in duration-200"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            className="bg-[#FFF9F2] border-b border-[#E8DDD3] shadow-2xl px-5 py-6 space-y-5 animate-in slide-in-from-top-4 duration-200 max-h-[calc(100vh-5rem)] overflow-y-auto"
+            className="bg-[#FFF9F2] border-b border-[#E8DDD3] shadow-2xl px-5 py-6 space-y-4 animate-in slide-in-from-top-4 duration-200 max-h-[calc(100vh-4rem)] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="text-[11px] font-black uppercase tracking-wider text-[#8B5E3C]">
-              Navigation
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#8B5E3C]">
+              Explore PupLume
             </div>
 
             <nav className="flex flex-col gap-2">
-              {navLinks.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center justify-between p-3.5 rounded-2xl border transition-all duration-150 min-h-[52px] ${
-                      isActive
-                        ? "bg-[#8B5E3C] text-white border-[#8B5E3C] shadow-sm"
-                        : "bg-white text-[#2C211B] border-[#E8DDD3] hover:bg-[#F3E7DA]/60 active:scale-[0.98]"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`p-2 rounded-xl ${
-                          isActive ? "bg-white/20 text-white" : "bg-[#FFF9F2] text-[#8B5E3C]"
-                        }`}
-                      >
-                        {item.icon}
+              {navLinks.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between p-3.5 rounded-2xl bg-white border border-[#E8DDD3] hover:border-[#8B5E3C]/40 transition-all text-[#2C211B]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-[#FFF9F2] text-[#8B5E3C]">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <div className="text-sm font-bold text-[#2C211B]">
+                        {item.name}
                       </div>
-                      <div>
-                        <div className={`text-sm font-bold ${isActive ? "text-white" : "text-[#2C211B]"}`}>
-                          {item.name}
-                        </div>
-                        <div className={`text-[11px] ${isActive ? "text-white/80" : "text-[#766A63]"}`}>
-                          {item.tagline}
-                        </div>
+                      <div className="text-[11px] text-[#766A63]">
+                        {item.tagline}
                       </div>
                     </div>
-                    <ArrowRight className={`w-4 h-4 ${isActive ? "text-white" : "text-[#766A63]"}`} />
-                  </Link>
-                );
-              })}
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-[#766A63]" />
+                </Link>
+              ))}
             </nav>
 
             {/* Bottom Auth Actions inside Mobile Drawer */}
             <div className="pt-3 border-t border-[#E8DDD3] flex flex-col gap-2.5">
               <a
-                href={`${appUrl}/?login=true`}
-                className="w-full py-3.5 text-center text-sm font-bold text-white bg-[#8B5E3C] rounded-2xl hover:bg-[#5F3E29] transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
+                href="/checkout"
+                className="w-full py-3.5 text-center text-sm font-bold text-white bg-[#8B5E3C] rounded-2xl hover:bg-[#6D492F] transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
               >
-                <span>Get Started Free</span>
+                <span>Get Lifetime Access ($24.99)</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
                 href={`${appUrl}/?login=true`}
-                className="w-full py-2.5 text-center text-xs font-bold text-[#8B5E3C] hover:text-[#5F3E29] transition-colors"
+                className="w-full py-2.5 text-center text-xs font-bold text-[#766A63] hover:text-[#2C211B] transition-colors"
               >
-                Already have an account? Log In
+                Already have an account? Sign In →
               </a>
             </div>
           </div>

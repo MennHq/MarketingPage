@@ -1,13 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Grandstander } from "next/font/google";
+import { Grandstander, Outfit } from "next/font/google";
 import { PostHogProvider } from "../components/PostHogProvider";
 import "./globals.css";
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 const grandstander = Grandstander({
   variable: "--font-grandstander",
   subsets: ["latin"],
-  display: "optional",
-  preload: true,
+  display: "swap",
+  weight: ["700", "800", "900"],
 });
 
 export const viewport: Viewport = {
@@ -85,10 +92,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${grandstander.variable} h-full antialiased font-grandstander`}
+      className={`${outfit.variable} ${grandstander.variable} h-full antialiased font-sans`}
       suppressHydrationWarning
     >
-      <body className={`${grandstander.className} min-h-full flex flex-col`} suppressHydrationWarning>
+      <body className={`${outfit.className} min-h-full flex flex-col font-sans bg-[#FFF9F2] text-[#2C211B]`} suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
