@@ -20,9 +20,9 @@ export default function CookiePolicy() {
       <section className="mb-10">
         <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">2. How We Use Cookies</h2>
         <ul className="list-disc pl-5 space-y-4 mb-6">
-          <li><strong>Essential Cookies:</strong> Required for the app to function, such as maintaining your authenticated session via Clerk.</li>
-          <li><strong>Analytics Cookies:</strong> Help us understand how users interact with our app, allowing us to improve performance and UI design.</li>
-          <li><strong>Preference Cookies:</strong> Allow the app to remember choices you make, such as dark mode settings or language preferences.</li>
+          <li><strong>Essential Authentication Cookies:</strong> Strictly necessary to keep you securely signed in to your PupLume account via Clerk. Without these, authentication cannot function.</li>
+          <li><strong>Essential Local Storage:</strong> Used directly in your browser to store offline puppy routines, potty logs, and daily tasks so your pet records remain instantly accessible without lag.</li>
+          <li><strong>Privacy-Friendly Analytics (Zero Cookies):</strong> We measure marketing site performance using privacy-focused PostHog in memory-only mode. We do <strong>not</strong> write persistent tracking cookies to your computer or track you across third-party websites.</li>
         </ul>
       </section>
 

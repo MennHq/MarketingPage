@@ -39,6 +39,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         if ((posthog as any).__loaded) return;
         posthog.init(posthogKey, {
           api_host: posthogHost,
+          persistence: 'memory',
           person_profiles: 'identified_only',
           capture_pageview: false,
           capture_pageleave: true,
