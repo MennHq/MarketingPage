@@ -67,7 +67,7 @@ export default function Home() {
                     href="/checkout"
                     className="px-7 py-4 text-base font-bold text-white bg-[#8B5E3C] hover:bg-[#6D492F] rounded-2xl transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span>Get Lifetime Access — $24.99</span>
+                    <span>Claim Limited Offer — $24.99</span>
                     <ArrowRight className="w-4 h-4" />
                   </a>
 
@@ -83,7 +83,11 @@ export default function Home() {
                 <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-xs font-semibold text-[#766A63]">
                   <span className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    One-time payment
+                    Limited launch offer
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    $24.99 one-time payment
                   </span>
                   <span className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
@@ -92,10 +96,6 @@ export default function Home() {
                   <span className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     14-day refund guarantee
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    iOS, Android &amp; Web
                   </span>
                 </div>
 
@@ -543,18 +543,21 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
             
             <div className="text-center space-y-3 mb-14">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#8B5E3C]/10 text-[#8B5E3C] font-bold text-xs border border-[#8B5E3C]/20">
+                <span>🔥 Limited-Time Launch Offer</span>
+              </div>
               <h2 className="text-3xl sm:text-5xl font-black text-[#2C211B] font-heading tracking-tight">
                 One Honest Price. Lifetime Care.
               </h2>
               <p className="text-base text-[#6B5E55] max-w-xl mx-auto">
-                No recurring fees. No feature gates. Pay once and keep full access forever.
+                Introductory limited offer: pay once, keep full access forever. Never pay a monthly subscription.
               </p>
             </div>
 
             <div className="max-w-lg mx-auto bg-gradient-to-br from-[#FFF9F2] to-white rounded-3xl border-2 border-[#8B5E3C] shadow-xl overflow-hidden p-8 sm:p-10 text-center relative">
               
               <div className="inline-block px-3.5 py-1 rounded-full bg-[#8B5E3C] text-white text-xs font-bold uppercase tracking-wider mb-6">
-                Lifetime Access • One-Time Payment
+                Limited Offer • $24.99 One-Time Payment
               </div>
 
               <div className="flex items-baseline justify-center gap-2 mb-3">
@@ -563,7 +566,7 @@ export default function Home() {
               </div>
 
               <p className="text-xs font-semibold text-[#766A63] mb-8">
-                One single payment. Full features unlocked forever.
+                Limited launch access • Full features unlocked forever
               </p>
 
               <div className="space-y-3 text-left mb-8 text-sm text-[#2C211B]">
@@ -595,9 +598,9 @@ export default function Home() {
 
               <a
                 href="/checkout"
-                className="w-full py-4 text-base font-bold text-white bg-[#8B5E3C] hover:bg-[#6D492F] rounded-2xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-4 text-base font-bold text-white bg-[#8B5E3C] hover:bg-[#6D492F] rounded-2xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer active:scale-95"
               >
-                <span>Get Lifetime Access Now</span>
+                <span>Claim Limited Offer — $24.99</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
@@ -700,12 +703,12 @@ export default function Home() {
                 href="/checkout"
                 className="inline-flex items-center gap-2 px-8 py-4 text-base font-extrabold text-[#2C211B] bg-white hover:bg-[#FFF9F2] rounded-2xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5 active:scale-95 cursor-pointer"
               >
-                <span>Get Lifetime Access — $24.99</span>
+                <span>Claim Limited Offer — $24.99</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>
             <p className="text-xs text-zinc-400">
-              One-Time Payment • No Subscriptions • 14-Day Guarantee
+              Limited Launch Offer • One-Time Payment • No Subscriptions • 14-Day Guarantee
             </p>
           </div>
         </section>

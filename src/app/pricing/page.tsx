@@ -19,30 +19,38 @@ export default function PricingPage() {
         <div className="container mx-auto max-w-4xl relative z-10 text-center">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#8B5E3C]/10 text-[#8B5E3C] font-bold text-xs sm:text-sm mb-6 border border-[#8B5E3C]/20">
-              <Shield className="w-4 h-4" /> Simple, Transparent Pricing
+              <Shield className="w-4 h-4" /> Limited-Time Launch Offer
             </div>
             
             <h1 className="text-3.5xl sm:text-5xl md:text-6xl font-black mb-4 sm:mb-6 tracking-tight leading-tight">
               One Price.<br className="md:hidden" /> A Lifetime of Care.
             </h1>
-            <p className="text-xl text-[#766A63] mb-12 max-w-2xl mx-auto font-medium">
-              No hidden fees. No recurring subscriptions. Just full access to everything you need to raise a healthy, happy puppy.
+            <p className="text-lg sm:text-xl text-[#766A63] mb-12 max-w-2xl mx-auto font-medium">
+              Limited introductory offer: pay <span className="font-bold text-[#2C211B]">$24.99 once</span> and enjoy full lifetime access. No subscriptions, no hidden renewals, no feature gates.
             </p>
           </div>
 
           {/* Pricing Card */}
-          <div className="max-w-md mx-auto bg-white rounded-[40px] shadow-2xl border border-[#E8DDD3] overflow-hidden transition-all duration-300 hover:shadow-3xl">
+          <div className="max-w-md mx-auto bg-white rounded-[40px] shadow-2xl border-2 border-[#8B5E3C] overflow-hidden transition-all duration-300 hover:shadow-3xl relative">
+            {/* Limited Offer Badge */}
+            <div className="bg-[#8B5E3C] text-white text-xs font-black uppercase tracking-wider py-1.5 text-center">
+              🔥 Limited Launch Offer • One-Time Payment
+            </div>
+
             {/* Card Header */}
-            <div className="bg-[#2C211B] p-10 relative overflow-hidden text-center text-white">
+            <div className="bg-[#2C211B] p-8 sm:p-10 relative overflow-hidden text-center text-white">
               <div className="relative z-10 mx-auto w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 border border-white/20 backdrop-blur-md">
                 <Dog className="w-8 h-8 text-[#F3E7DA]" />
               </div>
               
               <h2 className="text-2xl font-bold mb-2">Lifetime Access</h2>
-              <div className="flex items-baseline justify-center gap-1">
-                <span className="text-6xl font-black">$24.99</span>
-                <span className="text-lg text-white/80 font-medium">USD</span>
+              <div className="flex items-baseline justify-center gap-1.5">
+                <span className="text-5xl sm:text-6xl font-black">$24.99</span>
+                <span className="text-base text-white/80 font-semibold">USD</span>
               </div>
+              <p className="text-xs text-[#F3E7DA]/80 mt-2 font-medium">
+                One-time payment • Never pay monthly fees
+              </p>
             </div>
 
             {/* Card Body */}
@@ -53,19 +61,19 @@ export default function PricingPage() {
                 <FeatureItem text="Advanced Health & Growth Analytics" />
                 <FeatureItem text="Complete Medical & Vaccine Vault" />
                 <FeatureItem text="Potty & Sleep Tracking Tools" />
-                <FeatureItem text="Free Future Updates" />
+                <FeatureItem text="Free Future Updates & Sync" />
               </ul>
 
-              <AppActionLink 
-                hrefPath="/?login=true" 
-                className="w-full h-14 text-lg font-bold text-white bg-[#8B5E3C] rounded-2xl hover:bg-[#5F3E29] transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2"
+              <Link 
+                href="/checkout" 
+                className="w-full h-14 text-base sm:text-lg font-bold text-white bg-[#8B5E3C] rounded-2xl hover:bg-[#5F3E29] transition-all shadow-xl hover:shadow-2xl hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
               >
-                <span>Get Started Now</span>
+                <span>Claim Limited Offer — $24.99</span>
                 <ArrowRight className="w-5 h-5" />
-              </AppActionLink>
+              </Link>
               
-              <p className="text-center text-xs font-bold text-[#8B5E3C] mt-4 uppercase tracking-wider">
-                100% Fully Paid. No Freemium.
+              <p className="text-center text-xs font-semibold text-[#766A63] mt-4">
+                14-Day Money-Back Guarantee • Zero Recurring Charges
               </p>
             </div>
           </div>

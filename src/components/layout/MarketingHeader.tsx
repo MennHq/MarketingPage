@@ -116,8 +116,8 @@ export function MarketingHeader() {
             href="/checkout"
             className="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-[#8B5E3C] hover:bg-[#6D492F] rounded-2xl transition-all shadow-xs hover:shadow-md active:scale-95 flex items-center gap-1.5"
           >
-            <span>Get App</span>
-            <span className="hidden sm:inline opacity-80 text-[11px] font-normal">• $24.99</span>
+            <span>Limited Offer</span>
+            <span className="hidden sm:inline opacity-90 text-[11px] font-bold">• $24.99</span>
           </a>
 
           {/* Mobile Hamburger Toggle Button */}
@@ -179,7 +179,7 @@ export function MarketingHeader() {
                 href="/checkout"
                 className="w-full py-3.5 text-center text-sm font-bold text-white bg-[#8B5E3C] rounded-2xl hover:bg-[#6D492F] transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
               >
-                <span>Get Lifetime Access ($24.99)</span>
+                <span>Claim Limited Offer ($24.99)</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
