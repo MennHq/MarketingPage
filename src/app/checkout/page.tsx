@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { initializePaddle, Paddle } from '@paddle/paddle-js';
 import Link from 'next/link';
+import { getAppUrl } from '@/lib/urls';
 
 const PADDLE_CLIENT_TOKEN = process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN || "test_b503a3450cb3219fa5267a7ef42";
 const PADDLE_PRICE_ID = process.env.NEXT_PUBLIC_PADDLE_PRICE_ID || "pri_01m43jma0epjpm0dhn9k3rbp47";
@@ -56,9 +57,10 @@ export default function CheckoutPage() {
   useEffect(() => {
     if (!isCompleted) return;
 
+    const baseAppUrl = getAppUrl();
     const appUrl = customerEmail 
-      ? `http://localhost:3000?login=true&email=${encodeURIComponent(customerEmail)}` 
-      : 'http://localhost:3000?login=true';
+      ? `${baseAppUrl}?login=true&email=${encodeURIComponent(customerEmail)}` 
+      : `${baseAppUrl}?login=true`;
 
     if (countdown > 0) {
       const timer = setTimeout(() => setCountdown(c => c - 1), 1000);
@@ -68,9 +70,10 @@ export default function CheckoutPage() {
     }
   }, [isCompleted, countdown, customerEmail]);
 
+  const baseAppUrl = typeof window !== 'undefined' ? getAppUrl() : (process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000');
   const targetAppUrl = customerEmail 
-    ? `http://localhost:3000?login=true&email=${encodeURIComponent(customerEmail)}` 
-    : 'http://localhost:3000?login=true';
+    ? `${baseAppUrl}?login=true&email=${encodeURIComponent(customerEmail)}` 
+    : `${baseAppUrl}?login=true`;
 
   return (
     <div className="min-h-screen bg-[#FFF9F2] flex flex-col justify-between p-4 sm:p-8 font-sans">
