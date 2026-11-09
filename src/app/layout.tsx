@@ -23,12 +23,18 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "") ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
+  "https://petttttttpuplume.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://puplume.pet"),
+  metadataBase: new URL(siteUrl),
   title: "PupLume | Puppy Training App & Digital Organizer",
   description: "The ultimate intelligent companion for new dog parents. Track potty training, manage health records, and get AI-powered puppy training advice all in one app.",
   alternates: {
-    canonical: "https://puplume.pet",
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -43,12 +49,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    apple: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "PupLume | Puppy Training App & Digital Organizer",
     description: "The ultimate intelligent companion for new dog parents.",
-    url: "https://puplume.pet",
+    url: "/",
     siteName: "PupLume",
     images: [
       {
@@ -63,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PupLume | Puppy Training App",
+    title: "PupLume | Puppy Training App & Digital Organizer",
     description: "The ultimate intelligent companion for new dog parents.",
     images: ["/og-marketing.png"],
   },
