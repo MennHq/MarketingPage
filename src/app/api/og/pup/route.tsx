@@ -39,7 +39,6 @@ export async function GET(request: NextRequest) {
     const pup = slug ? await getPublicPuppy(slug) : null;
 
     if (!pup) {
-      // Return clean "Not Found" card
       return new ImageResponse(
         (
           <div
@@ -77,35 +76,39 @@ export async function GET(request: NextRequest) {
                   marginBottom: "20px",
                 }}
               >
-                🐾 Pup<span style={{ color: "#8B5E3C" }}>Lume</span>
+                <span>Pup</span>
+                <span style={{ color: "#8B5E3C" }}>Lume</span>
               </div>
               <div
                 style={{
+                  display: "flex",
                   fontSize: "44px",
                   fontWeight: "900",
                   color: "#2C211B",
                   marginBottom: "12px",
                 }}
               >
-                Puppy Passport Not Found
+                <span>Puppy Passport Not Found</span>
               </div>
               <div
                 style={{
+                  display: "flex",
                   fontSize: "22px",
                   color: "#6B5E55",
                   marginBottom: "24px",
                 }}
               >
-                No active collar tag registered for &quot;{slug || "this pup"}&quot;.
+                <span>No active collar tag registered for this puppy.</span>
               </div>
               <div
                 style={{
+                  display: "flex",
                   fontSize: "18px",
                   fontWeight: "700",
                   color: "#8B5E3C",
                 }}
               >
-                puplume.pet • Smart Dog Passport &amp; Routine Care
+                <span>puplume.pet - Smart Dog Passport and Care Routine</span>
               </div>
             </div>
           </div>
@@ -118,7 +121,7 @@ export async function GET(request: NextRequest) {
     const name = pup.name || "Puppy";
     const breed = pup.breed || "Puppy";
     const weight = pup.weightLbs ? `${pup.weightLbs} lbs` : "";
-    const temperament = pup.temperament || "Playful, affectionate & loyal";
+    const temperament = pup.temperament || "Playful, affectionate and loyal";
     const microchip = pup.microchipNumber || `PL-${(pup._id || "TAG").slice(-6).toUpperCase()}`;
     const photoUrl = pup.photoUrl || "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80";
 
@@ -148,7 +151,6 @@ export async function GET(request: NextRequest) {
               border: isEmergency ? "3px solid #EF4444" : "2px solid #E8DDD3",
               boxShadow: "0 20px 45px rgba(44, 33, 27, 0.08)",
               padding: "32px 40px",
-              position: "relative",
             }}
           >
             {/* Header Row */}
@@ -174,25 +176,31 @@ export async function GET(request: NextRequest) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#FFFFFF",
-                    fontSize: "24px",
                   }}
                 >
-                  🐶
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" fill="#FFF9F2" />
+                    <circle cx="9" cy="10" r="1.5" fill="#2C211B" />
+                    <circle cx="15" cy="10" r="1.5" fill="#2C211B" />
+                    <ellipse cx="12" cy="14" rx="2.5" ry="1.5" fill="#2C211B" />
+                  </svg>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <div
                     style={{
+                      display: "flex",
                       fontSize: "28px",
                       fontWeight: "900",
                       color: "#2C211B",
                       lineHeight: "1",
                     }}
                   >
-                    Pup<span style={{ color: "#8B5E3C" }}>Lume</span>
+                    <span>Pup</span>
+                    <span style={{ color: "#8B5E3C" }}>Lume</span>
                   </div>
                   <div
                     style={{
+                      display: "flex",
                       fontSize: "11px",
                       fontWeight: "800",
                       letterSpacing: "2.5px",
@@ -200,7 +208,7 @@ export async function GET(request: NextRequest) {
                       marginTop: "3px",
                     }}
                   >
-                    {isEmergency ? "EMERGENCY SAFETY ALERT" : "DIGITAL PET PASSPORT"}
+                    <span>{isEmergency ? "EMERGENCY MISSING PET ALERT" : "OFFICIAL DIGITAL PET PASSPORT"}</span>
                   </div>
                 </div>
               </div>
@@ -215,13 +223,21 @@ export async function GET(request: NextRequest) {
                   border: isEmergency ? "1.5px solid #EF4444" : "1.5px solid #D8C3B0",
                   padding: "8px 18px",
                   borderRadius: "24px",
-                  fontSize: "14px",
+                  fontSize: "13px",
                   fontWeight: "800",
                   color: isEmergency ? "#B91C1C" : "#5F3E29",
                   letterSpacing: "1px",
                 }}
               >
-                <span>{isEmergency ? "🚨" : "●"}</span>
+                <div
+                  style={{
+                    display: "flex",
+                    width: "8px",
+                    height: "8px",
+                    borderRadius: "50%",
+                    backgroundColor: isEmergency ? "#EF4444" : "#10B981",
+                  }}
+                />
                 <span>{isEmergency ? "MISSING PET REPORTED" : "SMART COLLAR LIVE"}</span>
               </div>
             </div>
@@ -264,8 +280,7 @@ export async function GET(request: NextRequest) {
                     bottom: "12px",
                     left: "12px",
                     right: "12px",
-                    backgroundColor: "rgba(44, 33, 27, 0.88)",
-                    backdropFilter: "blur(6px)",
+                    backgroundColor: "rgba(44, 33, 27, 0.90)",
                     borderRadius: "12px",
                     padding: "6px 12px",
                     display: "flex",
@@ -277,7 +292,9 @@ export async function GET(request: NextRequest) {
                     letterSpacing: "0.5px",
                   }}
                 >
-                  <span style={{ color: "#34D399" }}>✓</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34D399" strokeWidth="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                   <span>VERIFIED CANINE TAG</span>
                 </div>
               </div>
@@ -294,6 +311,7 @@ export async function GET(request: NextRequest) {
                 {/* Passport ID */}
                 <div
                   style={{
+                    display: "flex",
                     fontSize: "12px",
                     fontWeight: "800",
                     letterSpacing: "1.5px",
@@ -301,12 +319,13 @@ export async function GET(request: NextRequest) {
                     marginBottom: "4px",
                   }}
                 >
-                  OFFICIAL PASSPORT // NO. {microchip}
+                  <span>{`OFFICIAL PASSPORT // NO. ${microchip}`}</span>
                 </div>
 
                 {/* Name */}
                 <div
                   style={{
+                    display: "flex",
                     fontSize: "56px",
                     fontWeight: "900",
                     color: isEmergency ? "#991B1B" : "#2C211B",
@@ -314,19 +333,20 @@ export async function GET(request: NextRequest) {
                     marginBottom: "6px",
                   }}
                 >
-                  {name}
+                  <span>{name}</span>
                 </div>
 
-                {/* Breed & Stats */}
+                {/* Breed and Stats */}
                 <div
                   style={{
+                    display: "flex",
                     fontSize: "20px",
                     fontWeight: "600",
                     color: "#6B5E55",
                     marginBottom: "16px",
                   }}
                 >
-                  {breed} {weight ? `• ${weight}` : ""} {pup.sex ? `• ${pup.sex}` : ""}
+                  <span>{`${breed}${weight ? ' - ' + weight : ''}${pup.sex ? ' - ' + pup.sex : ''}`}</span>
                 </div>
 
                 {/* Badges Pill Row */}
@@ -345,7 +365,8 @@ export async function GET(request: NextRequest) {
                       color: "#065F46",
                     }}
                   >
-                    <span>●</span> Active Collar Tag
+                    <div style={{ display: "flex", width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#059669" }} />
+                    <span>Active Collar Tag</span>
                   </div>
                   <div
                     style={{
@@ -361,7 +382,8 @@ export async function GET(request: NextRequest) {
                       color: "#92400E",
                     }}
                   >
-                    <span>●</span> Fully Vaccinated
+                    <div style={{ display: "flex", width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#D97706" }} />
+                    <span>Fully Vaccinated</span>
                   </div>
                   <div
                     style={{
@@ -377,7 +399,8 @@ export async function GET(request: NextRequest) {
                       color: isEmergency ? "#991B1B" : "#1E40AF",
                     }}
                   >
-                    <span>●</span> {isEmergency ? "Emergency Active" : "Emergency Ready"}
+                    <div style={{ display: "flex", width: "6px", height: "6px", borderRadius: "50%", backgroundColor: isEmergency ? "#DC2626" : "#2563EB" }} />
+                    <span>{isEmergency ? "Emergency Active" : "Emergency Ready"}</span>
                   </div>
                 </div>
 
@@ -404,31 +427,43 @@ export async function GET(request: NextRequest) {
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: "18px",
+                      color: "#8B5E3C",
                     }}
                   >
-                    {isEmergency ? "🚨" : "🏷️"}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="3" y="3" width="7" height="7" />
+                      <rect x="14" y="3" width="7" height="7" />
+                      <rect x="3" y="14" width="7" height="7" />
+                      <circle cx="17.5" cy="17.5" r="2.5" />
+                    </svg>
                   </div>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <div
                       style={{
+                        display: "flex",
                         fontSize: "14px",
                         fontWeight: "800",
                         color: isEmergency ? "#991B1B" : "#2C211B",
                       }}
                     >
-                      {isEmergency
-                        ? "Scan Tag or Open Link to Call Owner Immediately"
-                        : "Scan Collar Tag to Connect Instantly"}
+                      <span>
+                        {isEmergency
+                          ? "Scan Tag or Open Link to Call Owner Immediately"
+                          : "Scan Collar Tag to Connect Instantly"}
+                      </span>
                     </div>
                     <div
                       style={{
+                        display: "flex",
                         fontSize: "12px",
                         color: "#766A63",
                       }}
                     >
-                      {isEmergency && pup.rewardAmount
-                        ? `Reward: ${pup.rewardAmount}! Direct access to emergency phone & vet.`
-                        : `Temperament: ${temperament}`}
+                      <span>
+                        {isEmergency && pup.rewardAmount
+                          ? `Reward: ${pup.rewardAmount}! Direct access to emergency phone and vet.`
+                          : `Temperament: ${temperament}`}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -449,8 +484,8 @@ export async function GET(request: NextRequest) {
                 color: "#8C7A6D",
               }}
             >
-              <div>puplume.pet/pup/{slug}</div>
-              <div>Small paws. Big peace of mind. ♡</div>
+              <span style={{ display: "flex" }}>puplume.pet/pup/{slug}</span>
+              <span style={{ display: "flex" }}>Small paws. Big peace of mind.</span>
             </div>
           </div>
         </div>
