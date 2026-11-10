@@ -42,21 +42,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "") ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
     "https://petttttttpuplume.vercel.app";
 
   if (!pup) {
     return {
       title: "Puppy Not Found | PupLume",
       description: `No active puppy collar tag found for "${slug}".`,
+      alternates: {
+        canonical: `${baseUrl}/pup/${encodeURIComponent(slug)}`,
+      },
       openGraph: {
         title: "Puppy Passport Not Found",
         description: "This puppy tag is unregistered or mistyped.",
+        url: `${baseUrl}/pup/${encodeURIComponent(slug)}`,
         images: [`${baseUrl}/og-pup-not-found.png`],
       },
       twitter: {
         card: "summary_large_image",
         title: "Puppy Passport Not Found",
+        description: "This puppy tag is unregistered or mistyped.",
         images: [`${baseUrl}/og-pup-not-found.png`],
       },
     };
@@ -77,7 +81,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Designed image card logic
   let imageUrl = `${baseUrl}/og-pup-preview.png`;
   if (slug.toLowerCase() === "graxzo" || pup.name?.toLowerCase() === "graxzo") {
-    imageUrl = `${baseUrl}/og-graxzo.png`;
+    imageUrl = `${baseUrl}/og-graxzo.png?v=2`;
   } else if (pup.photoUrl && pup.photoUrl.startsWith("http")) {
     imageUrl = pup.photoUrl;
   }
@@ -85,6 +89,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
+    alternates: {
+      canonical: `${baseUrl}/pup/${encodeURIComponent(slug)}`,
+    },
     openGraph: {
       title,
       description,
@@ -99,6 +106,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         },
       ],
       type: "website",
+      locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
