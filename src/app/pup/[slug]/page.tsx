@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : `Meet ${pup.name}!${breedText}. Verified digital pet passport & smart collar safety tag on PupLume.`;
 
   // Dynamic OpenGraph passport card generated on the fly for EVERY puppy!
-  const imageUrl = `${baseUrl}/api/og/pup?slug=${encodeURIComponent(slug)}`;
+  const imageUrl = `${baseUrl}/api/og/pup?slug=${encodeURIComponent(slug)}&v=8`;
 
   return {
     title,
