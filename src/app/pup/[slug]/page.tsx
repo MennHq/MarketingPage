@@ -45,6 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     "https://petttttttpuplume.vercel.app";
 
   if (!pup) {
+    const notFoundImageUrl = `${baseUrl}/api/og/pup?slug=${encodeURIComponent(slug)}`;
     return {
       title: "Puppy Not Found | PupLume",
       description: `No active puppy collar tag found for "${slug}".`,
@@ -55,13 +56,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title: "Puppy Passport Not Found",
         description: "This puppy tag is unregistered or mistyped.",
         url: `${baseUrl}/pup/${encodeURIComponent(slug)}`,
-        images: [`${baseUrl}/og-pup-not-found.png`],
+        images: [
+          {
+            url: notFoundImageUrl,
+            width: 1200,
+            height: 630,
+            alt: "Puppy Passport Not Found",
+          },
+        ],
       },
       twitter: {
         card: "summary_large_image",
         title: "Puppy Passport Not Found",
         description: "This puppy tag is unregistered or mistyped.",
-        images: [`${baseUrl}/og-pup-not-found.png`],
+        images: [notFoundImageUrl],
       },
     };
   }
@@ -78,13 +86,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? `EMERGENCY: ${pup.name}${breedText} is reported missing! ${rewardText}View emergency owner contacts, vet details, and safety notes immediately.`
     : `Meet ${pup.name}!${breedText}. Verified digital pet passport & smart collar safety tag on PupLume.`;
 
-  // Designed image card logic
-  let imageUrl = `${baseUrl}/og-pup-preview.png`;
-  if (slug.toLowerCase() === "graxzo" || pup.name?.toLowerCase() === "graxzo") {
-    imageUrl = `${baseUrl}/og-graxzo.png?v=2`;
-  } else if (pup.photoUrl && pup.photoUrl.startsWith("http")) {
-    imageUrl = pup.photoUrl;
-  }
+  // Dynamic OpenGraph passport card generated on the fly for EVERY puppy!
+  const imageUrl = `${baseUrl}/api/og/pup?slug=${encodeURIComponent(slug)}`;
 
   return {
     title,
