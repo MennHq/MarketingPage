@@ -22,6 +22,8 @@ import {
   DollarSign
 } from "lucide-react";
 
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF9F2] text-[#2C211B] selection:bg-[#8B5E3C] selection:text-white overflow-x-hidden font-sans">

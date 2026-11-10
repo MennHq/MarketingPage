@@ -1,36 +1,11 @@
 import type { Metadata } from "next";
 import { PublicPupView } from "./PublicPupView";
+import { getPublicPuppy } from "@/lib/generatePupCardImage";
+
+export const dynamic = "force-dynamic";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-async function getPublicPuppy(slug: string) {
-  try {
-    const convexUrl =
-      process.env.VITE_CONVEX_URL ||
-      process.env.NEXT_PUBLIC_CONVEX_URL ||
-      "https://energetic-partridge-407.convex.cloud";
-
-    const res = await fetch(`${convexUrl}/api/query`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        path: "puppies:getPublicPuppyByTag",
-        args: { identifier: slug.toLowerCase().trim() },
-      }),
-      next: { revalidate: 30 },
-    });
-
-    if (!res.ok) return null;
-    const data = await res.json();
-    if (data?.status === "success" && data.value) {
-      return data.value;
-    }
-  } catch (err) {
-    console.error("Error fetching puppy from Convex:", err);
-  }
-  return null;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -44,21 +19,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : "") ||
     "https://petttttttpuplume.vercel.app";
 
+  const canonicalUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}`;
+  const ogImageUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}/opengraph-image`;
+  const twitterImageUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}/twitter-image`;
+
   if (!pup) {
-    const notFoundImageUrl = `${baseUrl}/api/og/pup?slug=${encodeURIComponent(slug)}`;
     return {
       title: "Puppy Not Found | PupLume",
       description: `No active puppy collar tag found for "${slug}".`,
       alternates: {
-        canonical: `${baseUrl}/pup/${encodeURIComponent(slug)}`,
+        canonical: canonicalUrl,
       },
       openGraph: {
         title: "Puppy Passport Not Found",
         description: "This puppy tag is unregistered or mistyped.",
-        url: `${baseUrl}/pup/${encodeURIComponent(slug)}`,
+        url: canonicalUrl,
         images: [
           {
-            url: notFoundImageUrl,
+            url: ogImageUrl,
             width: 1200,
             height: 630,
             alt: "Puppy Passport Not Found",
@@ -69,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         card: "summary_large_image",
         title: "Puppy Passport Not Found",
         description: "This puppy tag is unregistered or mistyped.",
-        images: [notFoundImageUrl],
+        images: [twitterImageUrl],
       },
     };
   }
@@ -86,23 +64,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? `EMERGENCY: ${pup.name}${breedText} is reported missing! ${rewardText}View emergency owner contacts, vet details, and safety notes immediately.`
     : `Meet ${pup.name}!${breedText}. Verified digital pet passport & smart collar safety tag on PupLume.`;
 
-  // Dynamic OpenGraph passport card generated on the fly for EVERY puppy!
-  const imageUrl = `${baseUrl}/api/og/pup?slug=${encodeURIComponent(slug)}&v=8`;
-
   return {
     title,
     description,
     alternates: {
-      canonical: `${baseUrl}/pup/${encodeURIComponent(slug)}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title,
       description,
-      url: `${baseUrl}/pup/${encodeURIComponent(slug)}`,
+      url: canonicalUrl,
       siteName: isEmergency ? undefined : "PupLume",
       images: [
         {
-          url: imageUrl,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: `${pup.name} Digital Passport`,
@@ -115,7 +90,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title,
       description,
-      images: [imageUrl],
+      images: [twitterImageUrl],
     },
   };
 }
