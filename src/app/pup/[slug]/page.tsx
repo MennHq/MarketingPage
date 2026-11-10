@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : `${pup.name}'s PupLume Pet Passport 🐾`;
 
   const breedText = pup.breed ? ` (${pup.breed})` : "";
-  const rewardText = pup.rewardAmount ? `★ Reward: ${pup.rewardAmount}! ` : "";
+  const rewardText = pup.rewardAmount ? `Reward: ${pup.rewardAmount}! ` : "";
 
   const description = isEmergency
     ? `EMERGENCY: ${pup.name}${breedText} is reported missing! ${rewardText}View emergency owner contacts, vet details, and safety notes immediately.`

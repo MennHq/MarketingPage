@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: '.',
   },
+  outputFileTracingIncludes: {
+    '/**': ['./public/fonts/**/*'],
+  },
   devIndicators: false,
   compress: true,
   poweredByHeader: false,

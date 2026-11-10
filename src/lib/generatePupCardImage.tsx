@@ -200,18 +200,24 @@ export async function generatePupCardImage(slug: string): Promise<ImageResponse>
     pup.microchipNumber ||
     `PL-${(pup._id || "985").toString().slice(-6).toUpperCase()}-PUP`;
 
-  const photoUrl =
+  let photoUrl =
     pup.photoUrl && pup.photoUrl.startsWith("http")
       ? pup.photoUrl
       : "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80";
 
-  // Real Scannable QR Code that leads directly to this puppy's live public passport
+  // Optimize Cloudinary URLs for lightning-fast serverless render
+  if (photoUrl.includes("res.cloudinary.com") && photoUrl.includes("/image/upload/")) {
+    photoUrl = photoUrl.replace("/image/upload/", "/image/upload/f_auto,q_auto,w_800,c_fill/");
+  }
+
+  // Real Scannable ISO-compliant QR Code that leads directly to this puppy's live public passport
   const publicPupUrl = `${baseUrl}/pup/${encodeURIComponent(slug.toLowerCase().trim())}`;
   let qrDataUrl = "";
   try {
     qrDataUrl = await QRCode.toDataURL(publicPupUrl, {
-      margin: 1,
-      width: 160,
+      margin: 2, // Standard quiet zone for 100% instant camera detection
+      width: 240, // Crisp high-DPI matrix
+      errorCorrectionLevel: "M",
       color: {
         dark: isEmergency ? "#991B1B" : "#1C140E",
         light: "#FFFFFF",
@@ -225,7 +231,7 @@ export async function generatePupCardImage(slug: string): Promise<ImageResponse>
   const subtitleParts: string[] = [breed];
   if (weight) subtitleParts.push(weight);
   if (pup.sex) subtitleParts.push(pup.sex);
-  const subtitleText = subtitleParts.join(" · ");
+  const subtitleText = subtitleParts.join(" \u2022 ");
 
   return new ImageResponse(
     (
@@ -670,15 +676,15 @@ export async function generatePupCardImage(slug: string): Promise<ImageResponse>
                 <div
                   style={{
                     display: "flex",
-                    width: "58px",
-                    height: "58px",
-                    borderRadius: "12px",
+                    width: "70px",
+                    height: "70px",
+                    borderRadius: "14px",
                     backgroundColor: "#FFFFFF",
-                    border: isEmergency ? "1.5px solid #FCA5A5" : "1.2px solid #E2D7C8",
+                    border: isEmergency ? "2px solid #FCA5A5" : "1.5px solid #E2D7C8",
                     alignItems: "center",
                     justifyContent: "center",
-                    padding: "3px",
-                    boxShadow: "0 2px 6px rgba(44, 33, 27, 0.05)",
+                    padding: "4px",
+                    boxShadow: "0 2px 8px rgba(44, 33, 27, 0.08)",
                   }}
                 >
                   {qrDataUrl ? (
@@ -687,9 +693,9 @@ export async function generatePupCardImage(slug: string): Promise<ImageResponse>
                       src={qrDataUrl}
                       alt="Scannable QR Collar Tag"
                       style={{
-                        width: "52px",
-                        height: "52px",
-                        borderRadius: "8px",
+                        width: "62px",
+                        height: "62px",
+                        borderRadius: "0px",
                       }}
                     />
                   ) : (
@@ -717,7 +723,7 @@ export async function generatePupCardImage(slug: string): Promise<ImageResponse>
                     }}
                   >
                     {isEmergency && pup.rewardAmount
-                      ? `★ Reward: ${pup.rewardAmount}! Direct access to emergency contacts.`
+                      ? `Reward: ${pup.rewardAmount}! Direct access to emergency contacts.`
                       : "Point phone camera to verify pet identity, contacts & medical records"}
                   </span>
                 </div>
