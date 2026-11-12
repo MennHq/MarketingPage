@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "") ||
-    "https://petttttttpuplume.vercel.app";
+    "https://puplume.pet";
 
   const canonicalUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}`;
   const ogImageUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}/opengraph-image`;

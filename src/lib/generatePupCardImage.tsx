@@ -100,7 +100,7 @@ export async function generatePupCardImage(slug: string): Promise<ImageResponse>
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "") ||
-    "https://petttttttpuplume.vercel.app";
+    "https://puplume.pet";
 
   const pup = slug ? await getPublicPuppy(slug) : null;
 
