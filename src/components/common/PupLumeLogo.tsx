@@ -5,13 +5,15 @@ interface PupLumeLogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
   onClick?: () => void;
+  showBackground?: boolean;
 }
 
 export const PupLumeLogo: React.FC<PupLumeLogoProps> = ({
   variant = 'full',
   size = 'md',
   className = '',
-  onClick
+  onClick,
+  showBackground = false
 }) => {
   const iconDimensions = {
     sm: { w: 32, h: 32 },
