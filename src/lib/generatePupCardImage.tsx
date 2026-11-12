@@ -257,24 +257,21 @@ export async function generatePupCardImage(slug: string): Promise<ImageResponse>
             height: "44px",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            {/* PupLume Squircle Icon */}
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            {/* PupLume Mascot Icon - Direct Vector, No Background Box */}
             <div
               style={{
                 display: "flex",
-                width: "42px",
-                height: "42px",
-                borderRadius: "14px",
-                backgroundColor: isEmergency ? "#DC2626" : "#8B5E3C",
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="9" fill="#FFF9F2" />
-                <circle cx="9" cy="10" r="1.6" fill="#2C211B" />
-                <circle cx="15" cy="10" r="1.6" fill="#2C211B" />
-                <ellipse cx="12" cy="14" rx="2.4" ry="1.4" fill="#2C211B" />
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" fill={isEmergency ? "#DC2626" : "#8B5E3C"} />
+                <ellipse cx="12" cy="14.5" rx="5" ry="4" fill="#FFF9F2" />
+                <circle cx="9" cy="10" r="1.5" fill="#2C211B" />
+                <circle cx="15" cy="10" r="1.5" fill="#2C211B" />
+                <ellipse cx="12" cy="13.5" rx="1.8" ry="1.2" fill="#2C211B" />
               </svg>
             </div>
 

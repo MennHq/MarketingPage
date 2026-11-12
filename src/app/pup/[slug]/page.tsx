@@ -17,11 +17,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "") ||
-    "https://puplume.pet";
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
+    "https://petttttttpuplume.vercel.app";
 
   const canonicalUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}`;
-  const ogImageUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}/opengraph-image`;
-  const twitterImageUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}/twitter-image`;
+  const ogImageUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}/opengraph-image?v=20261113b`;
+  const twitterImageUrl = `${baseUrl}/pup/${encodeURIComponent(slug)}/twitter-image?v=20261113b`;
 
   if (!pup) {
     return {
