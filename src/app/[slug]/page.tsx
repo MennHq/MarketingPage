@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
-  const pup = await getPublicPuppy(cleanSlug);
+  const pup = await getPublicPuppy(cleanSlug, true);
 
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL ||
@@ -174,7 +174,7 @@ export default async function SlugPage({ params }: PageProps) {
     notFound();
   }
 
-  const pup = await getPublicPuppy(cleanSlug);
+  const pup = await getPublicPuppy(cleanSlug, true);
 
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL ||

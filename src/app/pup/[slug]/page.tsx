@@ -11,7 +11,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const cleanSlug = (slug || "").toLowerCase().trim();
-  const pup = await getPublicPuppy(cleanSlug);
+  const pup = await getPublicPuppy(cleanSlug, true);
 
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL ||
@@ -147,7 +147,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function PupPage({ params }: PageProps) {
   const { slug } = await params;
   const cleanSlug = (slug || "").toLowerCase().trim();
-  const pup = await getPublicPuppy(cleanSlug);
+  const pup = await getPublicPuppy(cleanSlug, true);
 
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL ||

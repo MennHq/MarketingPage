@@ -9,8 +9,16 @@ let outfitBold: Buffer | null = null;
 let outfitSemiBold: Buffer | null = null;
 let grandstanderBlack: Buffer | null = null;
 
-// In-memory puppy data cache (60-second TTL for instant response)
+// In-memory puppy data cache (10-second TTL fallback for image generation)
 const puppyCache = new Map<string, { data: any; timestamp: number }>();
+
+export function invalidatePuppyCache(slug?: string) {
+  if (slug) {
+    puppyCache.delete(slug.toLowerCase().trim());
+  } else {
+    puppyCache.clear();
+  }
+}
 
 function loadFonts() {
   try {
@@ -34,11 +42,13 @@ function loadFonts() {
   }
 }
 
-export async function getPublicPuppy(slug: string) {
+export async function getPublicPuppy(slug: string, forceFresh: boolean = false) {
   const normalized = slug.toLowerCase().trim();
-  const cached = puppyCache.get(normalized);
-  if (cached && Date.now() - cached.timestamp < 60000) {
-    return cached.data;
+  if (!forceFresh) {
+    const cached = puppyCache.get(normalized);
+    if (cached && Date.now() - cached.timestamp < 10000) {
+      return cached.data;
+    }
   }
 
   try {
@@ -48,7 +58,7 @@ export async function getPublicPuppy(slug: string) {
       "https://energetic-partridge-407.convex.cloud";
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 2500);
+    const timeout = setTimeout(() => controller.abort(), 3000);
 
     const res = await fetch(`${convexUrl}/api/query`, {
       method: "POST",
@@ -58,7 +68,8 @@ export async function getPublicPuppy(slug: string) {
         args: { identifier: normalized },
       }),
       signal: controller.signal,
-      next: { revalidate: 60 },
+      cache: forceFresh ? "no-store" : "default",
+      next: forceFresh ? { revalidate: 0 } : { revalidate: 10 },
     });
     clearTimeout(timeout);
 
