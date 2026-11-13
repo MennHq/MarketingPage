@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "PupLume",
     images: [
       {
-        url: "/og-marketing.png?v=20261113b",
+        url: `${siteUrl}/og-marketing.png?v=20261113c`,
         width: 1200,
         height: 630,
         alt: "PupLume — The Smart Dog Passport & AI Care Routine",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PupLume | Puppy Training App & Digital Organizer",
     description: "The ultimate intelligent companion for new dog parents. Track potty training, manage health records, and get AI-powered puppy training advice all in one app.",
-    images: ["/og-marketing.png?v=20261113b"],
+    images: [`${siteUrl}/og-marketing.png?v=20261113c`],
   },
 };
 
