@@ -100,9 +100,22 @@ export default function PrivacyPolicy() {
         </div>
       </section>
 
-      {/* 4. Veterinary Disclaimer */}
+      {/* 4. Public Pet Passports & Search Engine Indexing */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">4. Special Veterinary &amp; Medical Disclaimer</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">4. Public Pet Passports &amp; Search Engine Indexing Controls</h2>
+        <p className="mb-4">
+          PupLume allows pet owners to activate a digital pet passport webpage linked to their puppy&apos;s unique profile URL and QR collar tag. This feature exists to aid in reuniting lost pets and sharing care details with sitters or veterinarians.
+        </p>
+        <ul className="list-disc pl-5 space-y-2 mb-4">
+          <li><strong>Publicly Displayed Pet Information:</strong> Only the specific puppy information you select (e.g., puppy name, breed, emergency phone contacts, lost-pet status, temperament tags) is shown on the public pet passport. Your private journals, notes, and account email are never made public.</li>
+          <li><strong>Search Engine Indexing Control:</strong> You can choose whether public search engines (Google, Bing, Yahoo) may index your pet&apos;s passport page. You can toggle this setting at any time directly in your Pup Page Settings.</li>
+          <li><strong>Unlisted Mode:</strong> When indexing is disabled, PupLume immediately applies HTTP <code className="bg-stone-100 px-1 py-0.5 rounded text-stone-800">X-Robots-Tag: noindex, nofollow</code> headers, removes the URL from our public XML sitemaps, and renders robot exclusion tags. Your puppy&apos;s page remains accessible only to individuals who scan the physical collar tag or have the direct link.</li>
+        </ul>
+      </section>
+
+      {/* 5. Veterinary Disclaimer */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">5. Special Veterinary &amp; Medical Disclaimer</h2>
         <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-amber-950 text-xs sm:text-sm leading-relaxed">
           <p>
             <strong>Important:</strong> PupLume and its AI Puppy Coach provide educational insights, habit tracking, and puppy development suggestions. <strong>PupLume does not provide licensed veterinary medical diagnosis, medical advice, prescription, or emergency care.</strong> Always consult a qualified, licensed veterinarian for animal health emergencies, medical diagnostics, vaccinations, or dietary treatments.
@@ -110,9 +123,9 @@ export default function PrivacyPolicy() {
         </div>
       </section>
 
-      {/* 5. Children's Privacy */}
+      {/* 6. Children's Privacy */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">5. Children&apos;s Privacy (COPPA &amp; Family Use)</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">6. Children&apos;s Privacy (COPPA &amp; Family Use)</h2>
         <p className="mb-4">
           PupLume is designed as a family-friendly puppy care assistant with wholesome content suitable for all ages (3+). However, to comply with the Children&apos;s Online Privacy Protection Act (COPPA) and international digital privacy standards:
         </p>
@@ -121,30 +134,31 @@ export default function PrivacyPolicy() {
         </p>
       </section>
 
-      {/* 6. User Rights */}
+      {/* 7. User Rights */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">6. Your Privacy Rights (US State Laws &amp; GDPR)</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">7. Your Privacy Rights (US State Laws &amp; GDPR)</h2>
         <p className="mb-4">Regardless of your location, you have meaningful rights over your data:</p>
         <ul className="list-disc pl-5 space-y-2 mb-4">
           <li><strong>Right to Access &amp; Know:</strong> You may request a copy of all personal information we have recorded about you.</li>
           <li><strong>Right to Rectification:</strong> You can edit or correct puppy details and records directly within your profile settings at any time.</li>
           <li><strong>Right to Deletion:</strong> You can request permanent erasure of your account, puppy profiles, and health records.</li>
+          <li><strong>Right to Search Privacy Control:</strong> You can disable public search engine indexing at any time with immediate effect on robots crawler directives.</li>
           <li><strong>Right to Opt-Out:</strong> You may opt out of non-essential analytics tracking or marketing emails.</li>
         </ul>
         <p>To exercise any of these rights, email us at <a href="mailto:support@puplume.pet" className="text-[#8B5E3C] underline">support@puplume.pet</a>. We respond to verified requests within 30 days without charge.</p>
       </section>
 
-      {/* 7. Data Storage & International Transfers */}
+      {/* 8. Data Storage & International Transfers */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">7. Data Storage &amp; International Transfers</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">8. Data Storage &amp; International Transfers</h2>
         <p className="mb-4">
           PupLume is hosted primarily on secure cloud servers located in the United States. If you access our services from outside the United States, your information will be transferred to and processed in the US under standard contractual clauses and appropriate administrative safeguards.
         </p>
       </section>
 
-      {/* 8. Retention & Security */}
+      {/* 9. Retention & Security */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">8. Data Retention &amp; Security Safeguards</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">9. Data Retention &amp; Security Safeguards</h2>
         <p className="mb-4">
           We retain your puppy records and account information for as long as your account remains active. Upon receiving an account deletion request, your personal data will be purged from active databases within 30 days.
         </p>
@@ -153,9 +167,9 @@ export default function PrivacyPolicy() {
         </p>
       </section>
 
-      {/* 9. Contact */}
+      {/* 10. Contact */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">9. Contact Us</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">10. Contact Us</h2>
         <p className="mb-4">If you have any questions or concerns regarding this Privacy Policy or data handling practices, please contact us:</p>
         <div className="bg-zinc-50 p-5 rounded-2xl border border-zinc-200/80 inline-block">
           <p className="font-bold text-zinc-900 mb-1">PupLume Privacy Team</p>

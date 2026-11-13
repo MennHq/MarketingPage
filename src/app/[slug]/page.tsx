@@ -50,6 +50,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: "Puppy Not Found | PupLume",
       description: `No active puppy collar tag found for "${slug}".`,
+      robots: {
+        index: false,
+        follow: false,
+        googleBot: {
+          index: false,
+          follow: false,
+        },
+      },
       alternates: {
         canonical: canonicalUrl,
       },
@@ -77,6 +85,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const isEmergency = Boolean(pup.isLost);
+  const isAllowedToRank = pup.allowSearchIndexing !== false;
+
   const title = isEmergency
     ? `🚨 MISSING PUPPY: Help find ${pup.name}! Contact & Safety Info`
     : `${pup.name}'s PupLume Pet Passport 🐾`;
@@ -88,9 +98,46 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? `EMERGENCY: ${pup.name}${breedText} is reported missing! ${rewardText}View emergency owner contacts, vet details, and safety notes immediately.`
     : `Meet ${pup.name}!${breedText}. Verified digital pet passport & smart collar safety tag on PupLume.`;
 
+  const keywords = isAllowedToRank
+    ? [
+        pup.name,
+        `${pup.name} dog`,
+        `${pup.name} puppy`,
+        pup.breed,
+        `${pup.breed} pet passport`,
+        "verified digital pet passport",
+        "smart dog collar tag",
+        "pet safety tag",
+        pup.microchipNumber ? `microchip ${pup.microchipNumber}` : "",
+        isEmergency ? `lost dog ${pup.name}` : "",
+        isEmergency ? `missing pet alert ${pup.name}` : "",
+      ].filter(Boolean) as string[]
+    : undefined;
+
   return {
     title,
     description,
+    keywords,
+    robots: isAllowedToRank
+      ? {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+          },
+        }
+      : {
+          index: false,
+          follow: false,
+          googleBot: {
+            index: false,
+            follow: false,
+          },
+        },
     alternates: {
       canonical: canonicalUrl,
     },
@@ -128,5 +175,53 @@ export default async function SlugPage({ params }: PageProps) {
   }
 
   const pup = await getPublicPuppy(cleanSlug);
-  return <PublicPupView puppy={pup} slug={slug} />;
+
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "") ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
+    "https://petttttttpuplume.vercel.app";
+
+  const canonicalUrl = `${baseUrl}/${encodeURIComponent(cleanSlug)}`;
+
+  // 100% Rich Schema.org JSON-LD Structured Data when search indexing is ON
+  const isAllowedToRank = pup && pup.allowSearchIndexing !== false;
+  const jsonLd = isAllowedToRank
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        name: `${pup.name}'s Verified Digital Pet Passport`,
+        description: `Meet ${pup.name}! Verified digital pet passport & smart collar safety tag on PupLume.`,
+        url: canonicalUrl,
+        mainEntity: {
+          "@type": "IndividualProduct",
+          name: pup.name,
+          image: pup.photoUrl,
+          description: `${pup.name} is a ${pup.breed || "dog"}. ${pup.temperament || ""}`,
+          identifier: pup.microchipNumber || `PL-${cleanSlug.toUpperCase()}-PUP`,
+          category: "Canine Pet Passport",
+          additionalProperty: [
+            { "@type": "PropertyValue", name: "Breed", value: pup.breed || "Canine" },
+            { "@type": "PropertyValue", name: "Sex", value: pup.sex },
+            { "@type": "PropertyValue", name: "Weight", value: pup.weightLbs ? `${pup.weightLbs} lbs` : undefined },
+            { "@type": "PropertyValue", name: "Status", value: pup.isLost ? "Reported Missing" : "Active Smart Tag" },
+            { "@type": "PropertyValue", name: "Collar Tag ID", value: cleanSlug },
+          ].filter((p) => Boolean(p.value)),
+        },
+      }
+    : null;
+
+  return (
+    <>
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
+      <PublicPupView puppy={pup} slug={slug} />
+    </>
+  );
 }

@@ -64,9 +64,24 @@ export default function TermsOfService() {
         </p>
       </section>
 
-      {/* 5. Copyright & DMCA Notice (Stolen Photo Shield) */}
+      {/* 5. Public Pet Passports & Search Engine Indexing Controls */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">5. Copyright & DMCA Takedown Policy</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">5. Public Pet Passports & Search Engine Indexing</h2>
+        <p className="mb-4">
+          PupLume allows users to generate public pet passport profiles linked to a unique puppy URL and smart QR collar tag to facilitate lost-pet recovery, emergency pet-sitter access, and care sharing.
+        </p>
+        <p className="mb-4">
+          <strong>Search Engine Indexing Control:</strong> Pet owners maintain complete control over whether their puppy&apos;s public passport is accessible to web search engines (Google, Bing, Yahoo):
+        </p>
+        <ul className="list-disc pl-5 space-y-2 mb-4">
+          <li><strong>Indexing Allowed (Default):</strong> When search indexing is enabled in your Pup Page Settings, PupLume publishes standard OpenGraph preview tags, search keywords, and Schema.org structured data, and includes your puppy in our public sitemap to help find lost pets.</li>
+          <li><strong>Indexing Disabled (Unlisted Mode):</strong> If you toggle search engine indexing off, PupLume immediately applies HTTP <code className="bg-stone-100 px-1 py-0.5 rounded text-stone-800">X-Robots-Tag: noindex, nofollow</code> headers, removes your page from the public search sitemap, and renders <code className="bg-stone-100 px-1 py-0.5 rounded text-stone-800">&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot; /&gt;</code> directives. The profile is unlisted from search engines and viewable only by direct link or physical collar scan.</li>
+        </ul>
+      </section>
+
+      {/* 6. Copyright & DMCA Notice (Stolen Photo Shield) */}
+      <section className="mb-10">
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">6. Copyright & DMCA Takedown Policy</h2>
         <p className="mb-4">
           PupLume respects the intellectual property rights of others and complies with the Digital Millennium Copyright Act (&quot;DMCA&quot;). If you believe that any image, text, or file uploaded to PupLume infringes your copyright, please notify our designated Copyright Agent by email at:
         </p>
@@ -80,9 +95,9 @@ export default function TermsOfService() {
         </p>
       </section>
 
-      {/* 6. Payments, Subscriptions & Merchant of Record */}
+      {/* 7. Payments, Subscriptions & Merchant of Record */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">6. Pricing, Billing & Merchant of Record</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">7. Pricing, Billing & Merchant of Record</h2>
         <p className="mb-4">
           PupLume offers free features and paid premium offerings (such as lifetime passes or subscription plans). All prices are displayed in USD or your local currency where applicable.
         </p>
@@ -94,9 +109,9 @@ export default function TermsOfService() {
         </p>
       </section>
 
-      {/* 7. Refund Policy Reference */}
+      {/* 8. Refund Policy Reference */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">7. Refund Policy</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">8. Refund Policy</h2>
         <p className="mb-4">
           Because PupLume delivers immediate digital access to AI tools, printable resources, and premium features, purchases are generally final. However, we maintain compassionate exceptions for unforeseen hardships or technical issues within 14 days of purchase.
         </p>
@@ -105,9 +120,9 @@ export default function TermsOfService() {
         </p>
       </section>
 
-      {/* 8. Acceptable Use Policy */}
+      {/* 9. Acceptable Use Policy */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">8. Acceptable Use Policy</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">9. Acceptable Use Policy</h2>
         <p className="mb-4">You agree that you will not:</p>
         <ul className="list-disc pl-5 space-y-2 mb-4">
           <li>Use the Service for any unlawful purpose, animal abuse, or unauthorized commercial activity.</li>
@@ -118,9 +133,9 @@ export default function TermsOfService() {
         </ul>
       </section>
 
-      {/* 9. Warranty Disclaimer */}
+      {/* 10. Warranty Disclaimer */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">9. Disclaimer of Warranties (&quot;AS-IS&quot;)</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">10. Disclaimer of Warranties (&quot;AS-IS&quot;)</h2>
         <div className="bg-zinc-50 border border-zinc-200 p-5 rounded-2xl mb-4">
           <p className="text-xs uppercase font-bold text-zinc-700 tracking-wide mb-2">Legal Disclaimer</p>
           <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed uppercase">
@@ -132,9 +147,9 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* 10. Limitation of Liability */}
+      {/* 11. Limitation of Liability */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">10. Limitation of Liability</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">11. Limitation of Liability</h2>
         <div className="bg-zinc-50 border border-zinc-200 p-5 rounded-2xl mb-4">
           <p className="text-xs uppercase font-bold text-zinc-700 tracking-wide mb-2">Liability Cap</p>
           <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed uppercase">
@@ -146,9 +161,9 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* 11. Dispute Resolution: Arbitration & Class Action Waiver (The Full Shield) */}
+      {/* 12. Dispute Resolution: Arbitration & Class Action Waiver (The Full Shield) */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">11. Dispute Resolution: Binding Arbitration & Class Action Waiver</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">12. Dispute Resolution: Binding Arbitration & Class Action Waiver</h2>
         <div className="bg-[#FFF9F2] border border-[#E8DDD3] p-5 rounded-2xl mb-4">
           <p className="font-bold text-[#8B5E3C] text-sm mb-2 uppercase tracking-wide">Please Read Carefully — Affects Your Legal Rights</p>
           <p className="text-sm text-zinc-800 leading-relaxed mb-3">
@@ -163,33 +178,33 @@ export default function TermsOfService() {
         </div>
       </section>
 
-      {/* 12. Indemnification */}
+      {/* 13. Indemnification */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">12. Indemnification</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">13. Indemnification</h2>
         <p className="mb-4">
           You agree to defend, indemnify, and hold harmless PupLume, its operators, and affiliates from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use or misuse of the Service, violation of these Terms, or infringement of any third-party rights.
         </p>
       </section>
 
-      {/* 13. Termination */}
+      {/* 14. Termination */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">13. Termination</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">14. Termination</h2>
         <p className="mb-4">
           You may terminate your account at any time by requesting deletion in your settings or emailing support. We reserve the right to suspend or terminate your access to the Service immediately and without prior notice if you violate these Terms or engage in fraudulent or abusive behavior.
         </p>
       </section>
 
-      {/* 14. Changes to These Terms */}
+      {/* 15. Changes to These Terms */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">14. Changes to These Terms</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">15. Changes to These Terms</h2>
         <p className="mb-4">
           We may update these Terms from time to time. When changes occur, we will update the &quot;Effective Date&quot; at the top of this document. Continued use of the Service after changes take effect constitutes your acceptance of the revised Terms.
         </p>
       </section>
 
-      {/* 15. Contact Information */}
+      {/* 16. Contact Information */}
       <section className="mb-10">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">15. Contact & Support</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4 tracking-tight">16. Contact & Support</h2>
         <p className="mb-4">
           For any questions, legal inquiries, or notices regarding these Terms, please contact us at:
         </p>
